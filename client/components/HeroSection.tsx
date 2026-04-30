@@ -15,12 +15,10 @@ export default function HeroSection() {
         {/* Left: Text */}
         <div className="flex-1 flex flex-col gap-4 lg:gap-6 z-10 max-w-xl lg:max-w-none">
           <h1
-            className="font-gilroy font-black text-white uppercase leading-none text-[clamp(3rem,10vw,7.5rem)]"
-            style={{ lineHeight: 1 }}
+          className="font-gilroy font-black text-white uppercase leading-none whitespace-nowrap text-[clamp(2rem,5vw,5rem)]"
+          style={{ lineHeight: 1 }}
           >
-            crypto
-            <br />
-            Exchange
+          Crypto Exchange
           </h1>
           <p
             className="font-montserrat font-medium text-brand-green uppercase text-[clamp(1rem,2.5vw,2rem)] tracking-[0.2em]"
