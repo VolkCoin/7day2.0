@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header className="relative w-full flex items-center justify-between pl-8 md:pl-16 pr-8 md:pr-16 py-4 md:py-6 z-50">
+    <header className="relative w-full flex items-center justify-between pl-8 md:pl-16 pr-8 md:pr-16 py-10 md:py-16 z-50">
       {/* Language Switcher */}
       <div className="flex items-center gap-2 cursor-pointer">
         <span className="font-gilroy font-bold text-xl md:text-2xl text-white uppercase tracking-wide">
