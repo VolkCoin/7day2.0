@@ -11,10 +11,10 @@ export default function HeroSection() {
       />
 
       {/* Content container */}
-      <div className="relative max-w-[1440px] mx-auto px-8 md:px-16 flex flex-col lg:flex-row items-center lg:items-start gap-8 pt-6 pb-16">
+      <div className="relative w-full pl-8 md:pl-16 flex items-center pt-6 pb-16 min-h-[600px] md:min-h-[750px] lg:min-h-[850px]">
 
         {/* Left: Text */}
-        <div className="flex-1 flex flex-col gap-4 lg:gap-6 z-10 min-w-0">
+        <div className="flex flex-col gap-4 lg:gap-6 z-10 w-[50%]">
           <h1
             className="font-gilroy font-black text-white uppercase"
             style={{ lineHeight: 1, fontSize: "clamp(2.5rem, 6vw, 6rem)" }}
@@ -29,8 +29,8 @@ export default function HeroSection() {
           </p>
         </div>
 
-        {/* Right: Image */}
-        <div className="relative flex-shrink-0 w-full max-w-[280px] md:max-w-[380px] lg:max-w-[480px] xl:max-w-[560px] flex items-center justify-center mr-4 lg:mr-8">
+        {/* Right: Image - абсолютное позиционирование */}
+        <div className="absolute right-0 top-0 bottom-0 w-[55%] md:w-[60%] flex items-center">
           <div
             className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-10"
             style={{
