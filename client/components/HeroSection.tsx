@@ -1,4 +1,22 @@
+import { useLang } from "@/context/LangContext";
+
+const translations = {
+  EN: {
+    title1: "Crypto",
+    title2: "Exchange",
+    subtitle: "Fast Easy Safe",
+  },
+  RU: {
+    title1: "Крипто",
+    title2: "Обмен",
+    subtitle: "Быстро Легко Безопасно",
+  },
+};
+
 export default function HeroSection() {
+  const { lang } = useLang();
+  const t = translations[lang];
+
   return (
     <section className="relative w-full overflow-hidden min-h-[600px] md:min-h-[750px] lg:min-h-[850px]">
       {/* Green glow - top left */}
@@ -19,17 +37,17 @@ export default function HeroSection() {
             className="font-gilroy font-black text-white uppercase"
             style={{ lineHeight: 1, fontSize: "clamp(2.5rem, 6vw, 6rem)" }}
           >
-            Crypto<br />Exchange
+            {t.title1}<br />{t.title2}
           </h1>
           <p
             className="font-montserrat font-medium text-brand-green uppercase tracking-[0.2em]"
             style={{ fontSize: "clamp(0.9rem, 2vw, 1.75rem)" }}
           >
-            Fast Easy Safe
+            {t.subtitle}
           </p>
         </div>
 
-        {/* Right: Image - абсолютное позиционирование */}
+        {/* Right: Image */}
         <div className="absolute right-0 top-0 bottom-0 w-[55%] md:w-[60%] flex items-center">
           <div
             className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-10"
