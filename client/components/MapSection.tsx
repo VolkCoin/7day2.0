@@ -32,7 +32,7 @@ function CitiesCard() {
       <p className="font-montserrat text-white text-center text-sm md:text-base leading-snug">
         Many other cities, on request from the manager
       </p>
-      <button className="w-full bg-white text-[#0A170B] font-montserrat font-medium text-sm md:text-base py-3 rounded-lg hover:bg-gray-100 transition-colors">
+      <button className="w-full bg-white text-[#0A170B] font-montserrat font-medium text-sm md:text-base py-3 rounded-lg hover:bg-gray-100 transition-colors" onClick={() => window.open("https://t.me/seven_day_rates", "_blank")}>
         Request
       </button>
     </div>
