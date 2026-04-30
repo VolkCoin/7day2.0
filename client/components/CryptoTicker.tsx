@@ -24,7 +24,7 @@ export default function CryptoTicker() {
       try {
         const ids = COINS.map((c) => c.id).join(",");
         const res = await fetch(
-          https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true
+          "https://api.coingecko.com/api/v3/simple/price?ids=" + ids + "&vs_currencies=usd&include_24hr_change=true"
         );
         const data = await res.json();
 
