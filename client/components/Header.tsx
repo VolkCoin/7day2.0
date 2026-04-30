@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <header className="relative w-full flex items-center justify-between px-8 md:px-16 py-4 md:py-6 z-50">
+    <header className="relative w-full flex items-center justify-between px-8 md:px-16 pr-0 py-4 md:py-6 z-50">
       {/* Language Switcher */}
       <div className="flex items-center gap-2 cursor-pointer">
         <span className="font-gilroy font-bold text-xl md:text-2xl text-white uppercase tracking-wide">
@@ -22,8 +22,8 @@ export default function Header() {
       {/* Telegram CTA - pill extending off right edge */}
       <div className="relative flex items-center">
         <a
-          href="#"
-          className="flex items-center gap-3 bg-white rounded-l-full pl-4 pr-4 md:pr-6 py-2 shadow-xl"
+          href="https://t.me/seven_day_rates"
+          className="flex items-center gap-3 bg-white pl-4 pr-8 md:pr-12 py-2 shadow-xl"
           style={{ borderRadius: "50px 0 0 50px" }}
         >
           <TelegramIcon />
