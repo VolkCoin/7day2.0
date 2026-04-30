@@ -35,8 +35,8 @@ export default function CryptoTicker() {
           return {
             symbol: coin.symbol,
             icon: coin.icon,
-            price: $${price.toLocaleString("en-US", { maximumFractionDigits: 2 })},
-            change: ${change >= 0 ? "+" : ""}${change.toFixed(2)}%,
+            price: "$" + price.toLocaleString("en-US", { maximumFractionDigits: 2 }),
+            change: (change >= 0 ? "+" : "") + change.toFixed(2) + "%",
             positive: change >= 0,
           };
         });
