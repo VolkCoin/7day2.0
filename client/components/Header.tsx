@@ -18,20 +18,6 @@ export default function Header() {
         alt="7 DAY RATES"
         className="h-14 md:h-20 w-auto flex-shrink-0"
       />
-
-      {/* Telegram CTA - pill extending off right edge */}
-      <div className="relative flex items-center">
-        <a
-          href="https://t.me/seven_day_rates"
-          className="flex items-center gap-3 bg-white pl-4 pr-8 md:pr-12 py-2 shadow-xl"
-          style={{ borderRadius: "50px 0 0 50px" }}
-        >
-          <TelegramIcon />
-          <span className="hidden md:block font-montserrat font-semibold text-[#0A170B] text-sm">
-            Telegram
-          </span>
-        </a>
-      </div>
     </header>
   );
 }
