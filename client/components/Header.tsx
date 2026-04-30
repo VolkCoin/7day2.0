@@ -15,7 +15,7 @@ export default function Header() {
       {/* Logo - абсолютное центрирование */}
       <div className="absolute left-1/2 -translate-x-1/2">
         <img
-          src="https://api.builder.io/api/v1/image/assets/TEMP/5b75acc1be8116f3461081d22abd1178065085fa?width=346"
+          src="https://api.builder.io/api/v1/image/assets/TEMP/5b75acc1be8116f3461081d22abd1178065085fa?width=800"
           alt="7 DAY RATES"
           className="h-14 md:h-20 w-auto"
         />
