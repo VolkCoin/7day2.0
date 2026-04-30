@@ -49,50 +49,36 @@ export default function WhyChooseUs() {
 
 function FeaturesGrid() {
   return (
-    <div className="relative">
+    <div className="relative border-r" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
       {/* Row 1 */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 border-t border-l"
         style={{ borderColor: "rgba(20,160,73,0.3)" }}>
         {features[0].map((f, i) => (
-          <FeatureCell key={i} title={f.title} desc={f.desc} isLastInRow={i === 4} rowIndex={0} />
+          <FeatureCell key={i} title={f.title} desc={f.desc} />
         ))}
       </div>
 
-      {/* Gradient divider between rows */}
-      <div
-        className="w-full h-px"
-        style={{
-          background: "linear-gradient(135deg, #14A049 0%, #23372A 44.76%, #536A5C 100%)",
-        }}
+      {/* Gradient divider */}
+      <div className="w-full h-px"
+        style={{ background: "linear-gradient(135deg, #14A049 0%, #23372A 44.76%, #536A5C 100%)" }}
       />
 
       {/* Row 2 */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 border-b border-l"
         style={{ borderColor: "rgba(20,160,73,0.3)" }}>
         {features[1].map((f, i) => (
-          <FeatureCell key={i} title={f.title} desc={f.desc} isLastInRow={i === 4} rowIndex={1} />
+          <FeatureCell key={i} title={f.title} desc={f.desc} />
         ))}
       </div>
     </div>
   );
 }
 
-function FeatureCell({
-  title,
-  desc,
-  isLastInRow,
-}: {
-  title: string;
-  desc: string;
-  isLastInRow: boolean;
-  rowIndex: number;
-}) {
+function FeatureCell({ title, desc }: { title: string; desc: string }) {
   return (
     <div
       className="flex flex-col items-center justify-center text-center px-4 py-8 md:py-10 border-r"
-      style={{
-        borderColor: isLastInRow ? "transparent" : "rgba(20,160,73,0.3)",
-      }}
+      style={{ borderColor: "rgba(20,160,73,0.3)" }}
     >
       <h3 className="font-gilroy font-bold text-white text-base md:text-lg mb-2 leading-snug">
         {title}
