@@ -5,6 +5,7 @@ import MapSection from "@/components/MapSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
+import { LangProvider } from "@/context/LangContext";
 
 function TelegramIcon() {
   return (
@@ -31,40 +32,42 @@ function TelegramIcon() {
 
 export default function Index() {
   return (
-    <main className="w-full min-h-screen bg-brand-dark overflow-x-clip">
-      {/* Background gradient effects */}
-      <div
-        className="fixed inset-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(circle at 0% 0%, rgba(20,160,73,0.08) 0%, transparent 50%)",
-          zIndex: 0,
-        }}
-      />
+    <LangProvider>
+      <main className="w-full min-h-screen bg-brand-dark overflow-x-clip">
+        {/* Background gradient effects */}
+        <div
+          className="fixed inset-0 pointer-events-none"
+          style={{
+            background: "radial-gradient(circle at 0% 0%, rgba(20,160,73,0.08) 0%, transparent 50%)",
+            zIndex: 0,
+          }}
+        />
 
-      {/* Floating Telegram button */}
-      <div className="fixed top-4 md:top-6 right-0 z-50">
-        <a
-          href="https://t.me/seven_day_rates"
-          className="flex items-center gap-3 bg-white pl-4 pr-8 md:pr-12 py-2 shadow-xl"
-          style={{ borderRadius: "50px 0 0 50px" }}
-        >
-          <TelegramIcon />
-          <span className="hidden md:block font-montserrat font-semibold text-[#0A170B] text-sm">
-            Telegram
-          </span>
-        </a>
-      </div>
+        {/* Floating Telegram button */}
+        <div className="fixed top-4 md:top-6 right-0 z-50">
+          <a
+            href="https://t.me/seven_day_rates"
+            className="flex items-center gap-3 bg-white pl-4 pr-8 md:pr-12 py-2 shadow-xl"
+            style={{ borderRadius: "50px 0 0 50px" }}
+          >
+            <TelegramIcon />
+            <span className="hidden md:block font-montserrat font-semibold text-[#0A170B] text-sm">
+              Telegram
+            </span>
+          </a>
+        </div>
 
-      {/* Content */}
-      <div className="relative z-10">
-        <Header />
-        <HeroSection />
-        <CryptoTicker />
-        <MapSection />
-        <WhyChooseUs />
-        <ReviewsSection />
-        <Footer />
-      </div>
-    </main>
+        {/* Content */}
+        <div className="relative z-10">
+          <Header />
+          <HeroSection />
+          <CryptoTicker />
+          <MapSection />
+          <WhyChooseUs />
+          <ReviewsSection />
+          <Footer />
+        </div>
+      </main>
+    </LangProvider>
   );
 }
