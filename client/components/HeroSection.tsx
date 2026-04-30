@@ -1,6 +1,6 @@
 export default function HeroSection() {
   return (
-    <section className="relative w-full overflow-x-hidden min-h-[600px] md:min-h-[750px] lg:min-h-[850px]">
+    <section className="relative w-full overflow-hidden min-h-[600px] md:min-h-[750px] lg:min-h-[850px]">
       {/* Green glow - top left */}
       <div
         className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none"
@@ -40,7 +40,7 @@ export default function HeroSection() {
           <img
             src="https://api.builder.io/api/v1/image/assets/TEMP/91655a458e219928683fd76dd6f9d0f9738e4ffe?width=1697"
             alt="Crypto Exchange"
-            className="w-full h-auto object-contain"
+            className="w-full h-auto object-contain max-h-[600px] md:max-h-[750px] lg:max-h-[850px]"
             style={{ transform: "rotate(3.4deg)" }}
           />
         </div>
