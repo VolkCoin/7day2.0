@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 
 export default function Index() {
   return (
-    <main className="w-full min-h-screen bg-brand-dark overflow-hidden">
+    <main className="w-full min-h-screen bg-brand-dark overflow-x-clip">
       {/* Background gradient effects */}
       <div
         className="fixed inset-0 pointer-events-none"
