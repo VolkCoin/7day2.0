@@ -42,7 +42,7 @@ export default function Index() {
           }}
         />
 
-        {/* Mobile-optimized floating Telegram button */}
+        {/* Compact Telegram button */}
         <div className="fixed top-3 md:top-6 right-0 z-30 md:z-50">
           <a
             href="https://t.me/seven_day_rates"
@@ -61,10 +61,23 @@ export default function Index() {
         <div className="relative z-10">
           <Header />
           <HeroSection />
-          <CryptoTicker />
-          <MapSection />
-          <WhyChooseUs />
-          <ReviewsSection />
+
+          <section className="py-6 md:py-10">
+            <CryptoTicker />
+          </section>
+
+          <section className="py-6 md:py-10">
+            <MapSection />
+          </section>
+
+          <section className="py-6 md:py-10">
+            <WhyChooseUs />
+          </section>
+
+          <section className="py-6 md:py-10">
+            <ReviewsSection />
+          </section>
+
           <Footer />
         </div>
       </main>
