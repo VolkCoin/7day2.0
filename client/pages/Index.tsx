@@ -70,6 +70,10 @@ export default function Index() {
           <RateCalculator />
         </section>
 
+        <section className="py-4 md:py-8">
+          <RequestForm />
+        </section>
+        
         <section className="py-6 md:py-10">
           <MapSection />
         </section>
