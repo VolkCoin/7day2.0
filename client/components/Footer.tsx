@@ -1,17 +1,25 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import { builder, BuilderComponent } from '@builder.io/react';
 import { useLang } from '../context/LangContext';
-import { RenderBuilderContent } from './builder'; // Возвращаем рендер билдера
+
+// Инициализация (ключ у тебя уже должен быть в переменных окружения или App.tsx)
+builder.init('753046f5619446d39695f269a9043231'); 
 
 const Footer: FC = () => {
   const { lang } = useLang();
+  const [footerContent, setFooterContent] = useState(null);
 
-  // Мы передаем текущий язык (lang) прямо в модель Builder.io
-  // Чтобы это сработало, у тебя в админке Builder.io для модели 'footer' 
-  // должна быть включена локализация.
+  useEffect(() => {
+    // Загружаем контент футера специально для выбранного языка
+    builder.get('footer', { locale: lang.toLowerCase() })
+      .promise()
+      .then(setFooterContent);
+  }, [lang]);
+
   return (
-    <RenderBuilderContent 
+    <BuilderComponent 
       model="footer" 
-      locale={lang.toLowerCase()} 
+      content={footerContent} 
     />
   );
 };
