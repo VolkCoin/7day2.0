@@ -58,16 +58,18 @@ export default function ReviewsSection() {
   const t = translations[lang];
 
   return (
-    <section className="w-full pt-8 md:pt-0 py-14 md:py-24 relative overflow-hidden">
+    <section className="relative isolate w-full pt-6 md:pt-2 pb-14 md:pb-24 overflow-hidden">
+      {/* softer glow for mobile; stays behind content */}
       <div
-        className="absolute -top-40 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+        className="absolute top-0 right-0 w-[420px] md:w-[600px] h-[420px] md:h-[600px] rounded-full pointer-events-none z-0"
         style={{
-          background: "radial-gradient(circle, rgba(20,160,73,0.4) 0%, transparent 70%)",
-          filter: "blur(100px)",
+          background: "radial-gradient(circle, rgba(20,160,73,0.22) 0%, transparent 72%)",
+          filter: "blur(95px)",
+          transform: "translate(35%, -35%)",
         }}
       />
 
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 relative z-10">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
         <div className="text-center mb-10 md:mb-16">
           <h2 className="font-gilroy font-semibold text-white text-3xl md:text-5xl lg:text-[56px] leading-tight mb-4">
             {t.heading}
@@ -99,7 +101,7 @@ export default function ReviewsSection() {
 
 function ReviewCard({ text, author, rating }: ReviewItem) {
   return (
-    <div className="card-glass rounded-[10px] p-5 sm:p-7 md:p-10 flex flex-col gap-5 md:gap-6 min-h-[260px]">
+    <div className="card-glass rounded-[12px] p-5 sm:p-7 md:p-10 flex flex-col gap-5 md:gap-6 min-h-[260px] border border-[rgba(20,160,73,0.45)]">
       <p className="font-montserrat text-white text-sm sm:text-base md:text-lg leading-relaxed">{text}</p>
       <p className="font-space-grotesk font-normal text-brand-green text-base sm:text-lg md:text-xl leading-relaxed">
         {author}
