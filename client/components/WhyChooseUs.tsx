@@ -85,30 +85,56 @@ export default function WhyChooseUs() {
 }
 
 function FeaturesGrid({ features }: { features: [FeatureItem[], FeatureItem[]] }) {
+  const items = [...features[0], ...features[1]];
+
   return (
-    <div className="relative border-r" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 border-t border-l" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
-        {features[0].map((f, i) => (
-          <FeatureCell key={i} title={f.title} desc={f.desc} />
+    <>
+      {/* Mobile: stacked cards */}
+      <div className="md:hidden grid grid-cols-1 gap-3">
+        {items.map((f, i) => (
+          <div
+            key={i}
+            className="card-glass rounded-xl px-4 py-5 border"
+            style={{ borderColor: "rgba(20,160,73,0.35)" }}
+          >
+            <h3 className="font-gilroy font-bold text-white text-xl leading-tight mb-2 text-center">
+              {f.title}
+            </h3>
+            <p className="font-montserrat text-[#E5E5E5] text-base leading-relaxed text-center">
+              {f.desc}
+            </p>
+          </div>
         ))}
       </div>
 
-      <div className="w-full h-px" style={{ background: "linear-gradient(135deg, #14A049 0%, #23372A 44.76%, #536A5C 100%)" }} />
+      {/* Desktop/tablet: grid table */}
+      <div className="hidden md:block relative border-r" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 border-t border-l" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
+          {features[0].map((f, i) => (
+            <FeatureCell key={i} title={f.title} desc={f.desc} />
+          ))}
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 border-b border-l" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
-        {features[1].map((f, i) => (
-          <FeatureCell key={i} title={f.title} desc={f.desc} />
-        ))}
+        <div className="w-full h-px" style={{ background: "linear-gradient(135deg, #14A049 0%, #23372A 44.76%, #536A5C 100%)" }} />
+
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 border-b border-l" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
+          {features[1].map((f, i) => (
+            <FeatureCell key={i} title={f.title} desc={f.desc} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
 function FeatureCell({ title, desc }: { title: string; desc: string }) {
   return (
-    <div className="flex flex-col items-center justify-center text-center px-4 sm:px-5 py-6 sm:py-8 md:py-10 border-r min-h-[148px] sm:min-h-[172px]" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
-      <h3 className="font-gilroy font-bold text-white text-base md:text-lg mb-2 leading-snug break-words">{title}</h3>
-      <p className="font-montserrat text-[#E5E5E5] text-xs sm:text-sm leading-relaxed">{desc}</p>
+    <div
+      className="flex flex-col items-center justify-center text-center px-4 py-8 lg:py-10 border-r min-h-[180px]"
+      style={{ borderColor: "rgba(20,160,73,0.3)" }}
+    >
+      <h3 className="font-gilroy font-bold text-white text-base lg:text-lg mb-2 leading-snug break-words">{title}</h3>
+      <p className="font-montserrat text-[#E5E5E5] text-sm leading-relaxed">{desc}</p>
     </div>
   );
 }
