@@ -34,7 +34,6 @@ export default function Index() {
   return (
     <LangProvider>
       <main className="w-full min-h-screen bg-brand-dark overflow-x-clip">
-        {/* Background gradient effects */}
         <div
           className="fixed inset-0 pointer-events-none"
           style={{
@@ -43,21 +42,22 @@ export default function Index() {
           }}
         />
 
-        {/* Floating Telegram button */}
-        <div className="fixed top-4 md:top-6 right-0 z-50">
+        {/* Mobile-optimized floating Telegram button */}
+        <div className="fixed top-3 md:top-6 right-0 z-30 md:z-50">
           <a
             href="https://t.me/seven_day_rates"
-            className="flex items-center gap-3 bg-white pl-4 pr-8 md:pr-12 py-2 shadow-xl"
+            className="flex items-center gap-1.5 md:gap-3 bg-white pl-1.5 pr-3 md:pl-4 md:pr-12 py-1 md:py-2 shadow-xl"
             style={{ borderRadius: "50px 0 0 50px" }}
           >
-            <TelegramIcon />
+            <div className="scale-[0.62] md:scale-100 origin-right">
+              <TelegramIcon />
+            </div>
             <span className="hidden md:block font-montserrat font-semibold text-[#0A170B] text-sm">
               Telegram
             </span>
           </a>
         </div>
 
-        {/* Content */}
         <div className="relative z-10">
           <Header />
           <HeroSection />
@@ -71,18 +71,3 @@ export default function Index() {
     </LangProvider>
   );
 }
-
-<div className="fixed top-3 right-0 z-30 md:z-50">
-  <a
-    href="https://t.me/seven_day_rates"
-    className="flex items-center gap-2 bg-white pl-2 pr-4 md:pl-4 md:pr-12 py-1.5 md:py-2 shadow-xl"
-    style={{ borderRadius: "50px 0 0 50px" }}
-  >
-    <div className="scale-75 md:scale-100 origin-right">
-      <TelegramIcon />
-    </div>
-    <span className="hidden md:block font-montserrat font-semibold text-[#0A170B] text-sm">
-      Telegram
-    </span>
-  </a>
-</div>
