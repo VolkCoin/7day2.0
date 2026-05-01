@@ -24,14 +24,14 @@ const translations = {
       {
         text: "What I value most is consistency. I’ve used this service multiple times for larger transfers, and the execution is always accurate. Support is responsive and professional.",
         author: "Emma K.",
-        meta: "London • BTC → Bank transfer",
+        meta: "London • USDT → Bank transfer",
         verified: "Verified client",
         rating: 5,
       },
       {
         text: "As someone new to crypto exchange, I expected the process to be complicated. It wasn’t. The team explained timing and steps in plain language and stayed in touch throughout.",
         author: "Michael R.",
-        meta: "Paris • ETH → USDT",
+        meta: "Paris • USDT → Cash",
         verified: "Verified client",
         rating: 5,
       },
@@ -52,14 +52,14 @@ const translations = {
       {
         text: "Больше всего ценю стабильность. Обмениваю здесь не первый раз, в том числе крупные суммы — всё проходит четко. Поддержка отвечает быстро и по делу.",
         author: "Екатерина К.",
-        meta: "Лондон • BTC → Банковский перевод",
+        meta: "Лондон • USDT → Банковский перевод",
         verified: "Проверенный клиент",
         rating: 5,
       },
       {
         text: "Я новичок в крипте и думал, что будет сложно. На практике всё оказалось понятно: объяснили сроки и этапы простым языком, менеджер был на связи до конца.",
         author: "Михаил Р.",
-        meta: "Париж • ETH → USDT",
+        meta: "Париж • USDT → Наличные",
         verified: "Проверенный клиент",
         rating: 5,
       },
