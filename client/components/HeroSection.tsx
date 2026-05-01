@@ -33,8 +33,8 @@ export default function HeroSection() {
             <h1
               className="font-gilroy font-black text-white uppercase leading-[0.95] text-[clamp(2.2rem,7.2vw,6rem)] whitespace-nowrap"
             >
-              <span className="block">CRYPTO</span>
-              <span className="block">EXCHANGE</span>
+              <span className="block">{t.title1}</span>
+              <span className="block">{t.title2}</span>
             </h1>
             <p className="font-montserrat font-medium text-brand-green uppercase tracking-[0.16em] md:tracking-[0.2em] text-[clamp(0.8rem,3.4vw,1.75rem)]">
               {t.subtitle}
