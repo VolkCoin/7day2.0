@@ -33,7 +33,6 @@ function TelegramIcon() {
 
 export default function Index() {
   return (
-    <LangProvider>
       <main className="w-full min-h-screen bg-brand-dark overflow-x-clip">
         <div
           className="fixed inset-0 pointer-events-none"
@@ -87,6 +86,5 @@ export default function Index() {
           <Footer />
         </div>
       </main>
-    </LangProvider>
   );
 }
