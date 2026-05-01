@@ -19,11 +19,11 @@ export default function Footer() {
 
   return (
     <footer
-      className="w-full border-t py-12 md:py-16 lg:py-20"
+      className="w-full border-t py-10 md:py-16 lg:py-20"
       style={{ borderColor: "rgba(255,255,255,0.25)" }}
     >
-      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 mb-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 mb-8">
           <div className="flex flex-col gap-8">
             <div>
               <p className="font-gilroy font-bold text-brand-gold text-xs md:text-sm uppercase tracking-wide letter-spacing-wide">
@@ -36,18 +36,18 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col items-start md:items-end gap-8">
+          <div className="flex flex-col items-start md:items-end gap-6 md:gap-8">
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/ded1aefa8b2ee5acb4b4494710ce46848326b456?width=346"
               alt="7 DAY RATES"
               className="h-12 md:h-16 w-auto"
             />
 
-            <div className="w-full flex flex-col md:flex-row md:justify-between gap-4 items-start md:items-center text-xs md:text-sm text-[#BCBCBC] font-inter">
-              <a href="#" className="hover:text-white transition-colors">
+            <div className="w-full flex flex-col md:flex-row md:justify-between gap-3 md:gap-4 items-start md:items-center text-xs md:text-sm text-[#BCBCBC] font-inter">
+              <a href="#" className="hover:text-white transition-colors leading-relaxed">
                 {t.legal}
               </a>
-              <span className="text-right w-full md:w-auto">{t.rights}</span>
+              <span className="text-left md:text-right w-full md:w-auto">{t.rights}</span>
             </div>
           </div>
         </div>
