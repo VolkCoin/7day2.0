@@ -8,6 +8,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import AmlKyc from "./pages/AmlKyc";
 
 const queryClient = new QueryClient();
 
@@ -26,5 +29,9 @@ const App = () => (
     </TooltipProvider>
   </QueryClientProvider>
 );
+
+<Route path="/terms" element={<Terms />} />
+<Route path="/privacy" element={<Privacy />} />
+<Route path="/aml-kyc" element={<AmlKyc />} />
 
 createRoot(document.getElementById("root")!).render(<App />);
