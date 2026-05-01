@@ -1,25 +1,64 @@
-const reviews = [
-  {
-    text: "I have been using this service for several months now. Everything always goes smoothly, and the fees are pleasantly surprising. I recommend it to anyone looking for a reliable exchanger",
-    author: "Olga Ionova",
-    rating: 5,
+import { useLang } from "@/context/LangContext";
+
+type ReviewItem = {
+  text: string;
+  author: string;
+  rating: number;
+};
+
+const translations = {
+  EN: {
+    heading: "Reviews",
+    subheading:
+      "We are proud that our clients trust us with their funds and choose our platform for cryptocurrency exchange. Here is what our users say about us:",
+    reviews: [
+      {
+        text: "I have been using this service for several months now. Everything always goes smoothly, and the fees are pleasantly surprising. I recommend it to anyone looking for a reliable exchanger",
+        author: "Olga Ionova",
+        rating: 5,
+      },
+      {
+        text: "Good platform with competitive rates. I exchanged several times and never had any problems. Support responds quickly, which is also a big plus.",
+        author: "Nikolay Semenov",
+        rating: 5,
+      },
+      {
+        text: "I am new to the world of cryptocurrencies and this site has been a real find for me. The clear explanations made the exchange process simple and understandable. Thank you!",
+        author: "Laura Ilarionova",
+        rating: 5,
+      },
+    ] as ReviewItem[],
   },
-  {
-    text: "Good platform with competitive rates. I exchanged several times and never had any problems. Support responds quickly, which is also a big plus.",
-    author: "Nikolay Semenov",
-    rating: 5,
+  RU: {
+    heading: "Отзывы",
+    subheading:
+      "Мы гордимся тем, что клиенты доверяют нам свои средства и выбирают нашу платформу для обмена криптовалют. Вот что говорят о нас пользователи:",
+    reviews: [
+      {
+        text: "Пользуюсь этим сервисом уже несколько месяцев. Всё проходит быстро и без проблем, а комиссии приятно удивляют. Рекомендую всем, кто ищет надежный обменник.",
+        author: "Ольга Ионова",
+        rating: 5,
+      },
+      {
+        text: "Хорошая платформа с выгодными курсами. Обменивал(а) несколько раз — ни разу не было проблем. Поддержка отвечает быстро, это большой плюс.",
+        author: "Николай Семенов",
+        rating: 5,
+      },
+      {
+        text: "Я новичок в криптовалюте, и этот сайт стал для меня настоящей находкой. Понятные объяснения сделали процесс обмена простым и удобным. Спасибо!",
+        author: "Лаура Иларионова",
+        rating: 5,
+      },
+    ] as ReviewItem[],
   },
-  {
-    text: 'I am new to the world of cryptocurrencies and this site has been a real find for me. The clear explanations made the exchange process simple and understandable. Thank you!"',
-    author: "Laura Ilarionova",
-    rating: 5,
-  },
-];
+};
 
 export default function ReviewsSection() {
+  const { lang } = useLang();
+  const t = translations[lang];
+
   return (
     <section className="w-full py-16 md:py-24 relative overflow-hidden">
-      {/* Top-right green glow */}
       <div
         className="absolute -top-40 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
@@ -29,29 +68,20 @@ export default function ReviewsSection() {
       />
 
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-16 relative z-10">
-        {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="font-gilroy font-semibold text-white text-3xl md:text-5xl lg:text-[56px] leading-tight mb-4">
-            Reviews
-          </h2>
-          <p className="font-montserrat text-[#E5E5E5] text-base md:text-lg lg:text-xl max-w-3xl mx-auto">
-            We are proud that our clients trust us with their funds and choose our platform for cryptocurrency
-            exchange. Here is what our users say about us:
-          </p>
+          <h2 className="font-gilroy font-semibold text-white text-3xl md:text-5xl lg:text-[56px] leading-tight mb-4">{t.heading}</h2>
+          <p className="font-montserrat text-[#E5E5E5] text-base md:text-lg lg:text-xl max-w-3xl mx-auto">{t.subheading}</p>
         </div>
 
-        {/* Reviews carousel - horizontal scroll on mobile, grid on desktop */}
         <div className="relative">
-          {/* Desktop grid */}
           <div className="hidden lg:grid lg:grid-cols-3 lg:gap-8">
-            {reviews.map((review, i) => (
+            {t.reviews.map((review, i) => (
               <ReviewCard key={i} {...review} />
             ))}
           </div>
 
-          {/* Mobile carousel */}
           <div className="lg:hidden flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
-            {reviews.map((review, i) => (
+            {t.reviews.map((review, i) => (
               <div key={i} className="flex-shrink-0 w-full sm:w-1/2 snap-start">
                 <ReviewCard {...review} />
               </div>
@@ -63,28 +93,11 @@ export default function ReviewsSection() {
   );
 }
 
-function ReviewCard({
-  text,
-  author,
-  rating,
-}: {
-  text: string;
-  author: string;
-  rating: number;
-}) {
+function ReviewCard({ text, author, rating }: ReviewItem) {
   return (
     <div className="card-glass rounded-[10px] p-8 md:p-10 flex flex-col gap-6">
-      {/* Review text */}
-      <p className="font-montserrat text-white text-base md:text-lg leading-relaxed">
-        {text}
-      </p>
-
-      {/* Author name */}
-      <p className="font-space-grotesk font-normal text-brand-green text-lg md:text-xl leading-relaxed">
-        {author}
-      </p>
-
-      {/* Stars */}
+      <p className="font-montserrat text-white text-base md:text-lg leading-relaxed">{text}</p>
+      <p className="font-space-grotesk font-normal text-brand-green text-lg md:text-xl leading-relaxed">{author}</p>
       <div className="flex gap-1">
         {Array.from({ length: rating }).map((_, i) => (
           <Star key={i} />
