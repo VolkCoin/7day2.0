@@ -1,4 +1,22 @@
+import { useLang } from "@/context/LangContext";
+
+const translations = {
+  EN: {
+    team: "7 Day Rates Team",
+    legal: "Terms of Use & Privacy Policy",
+    rights: "©2026 7 DAY RATES. All Rights Reserved",
+  },
+  RU: {
+    team: "Команда 7 Day Rates",
+    legal: "Условия использования и политика конфиденциальности",
+    rights: "©2026 7 DAY RATES. Все права защищены",
+  },
+};
+
 export default function Footer() {
+  const { lang } = useLang();
+  const t = translations[lang];
+
   return (
     <footer
       className="w-full border-t py-12 md:py-16 lg:py-20"
@@ -6,36 +24,30 @@ export default function Footer() {
     >
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 mb-8">
-          {/* Left section: Team info + socials */}
           <div className="flex flex-col gap-8">
-            {/* Team label */}
             <div>
               <p className="font-gilroy font-bold text-brand-gold text-xs md:text-sm uppercase tracking-wide letter-spacing-wide">
-                7 Day Rates Team
+                {t.team}
               </p>
             </div>
 
-            {/* Social icons */}
             <div className="flex gap-3">
               <TelegramLink />
             </div>
           </div>
 
-          {/* Right section: Logo + Legal */}
           <div className="flex flex-col items-start md:items-end gap-8">
-            {/* Logo */}
             <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/ded1aefa8b2ee5acb4b4494710ce46848326b456?width=346"
               alt="7 DAY RATES"
               className="h-12 md:h-16 w-auto"
             />
 
-            {/* Links + Copyright */}
             <div className="w-full flex flex-col md:flex-row md:justify-between gap-4 items-start md:items-center text-xs md:text-sm text-[#BCBCBC] font-inter">
               <a href="#" className="hover:text-white transition-colors">
-                Terms of Use & Privacy Policy
+                {t.legal}
               </a>
-              <span className="text-right w-full md:w-auto">©2026 7 DAY RATES. All Rights Reserved</span>
+              <span className="text-right w-full md:w-auto">{t.rights}</span>
             </div>
           </div>
         </div>
