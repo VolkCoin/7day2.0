@@ -15,6 +15,9 @@ type Direction =
   | "CASH_TO_USDT";
 type Contact = "Telegram" | "WhatsApp";
 
+const RATE_USDT_TO_AED = 3.66;
+const RATE_AED_TO_USDT = 3.69;
+
 const cityDirections: Record<City, Direction[]> = {
   Dubai: ["USDT_TO_AED", "AED_TO_USDT"],
   Miami: ["USDT_TO_USD", "USD_TO_USDT"],
@@ -34,6 +37,8 @@ const translations = {
     handle: "Your @username or phone",
     note: "Optional note",
     submit: "Create request",
+    rate: "Rate",
+    estimatedReceive: "Estimated receive",
     directions: {
       USDT_TO_AED: "USDT → AED Cash",
       AED_TO_USDT: "AED Cash → USDT",
@@ -63,6 +68,8 @@ const translations = {
     handle: "Ваш @username или телефон",
     note: "Комментарий (необязательно)",
     submit: "Создать заявку",
+    rate: "Курс",
+    estimatedReceive: "Ориентировочно получите",
     directions: {
       USDT_TO_AED: "USDT → AED наличные",
       AED_TO_USDT: "AED наличные → USDT",
@@ -96,6 +103,37 @@ export default function RequestForm() {
   const [note, setNote] = useState("");
 
   const availableDirections = useMemo(() => cityDirections[city], [city]);
+  const isDubai = city === "Dubai";
+
+  const numericAmount = useMemo(() => {
+    const normalized = amount.replace(",", ".");
+    const parsed = Number(normalized);
+    return Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
+  }, [amount]);
+
+  const dubaiEstimate = useMemo(() => {
+    if (!isDubai) return null;
+
+    if (direction === "USDT_TO_AED") {
+      return {
+        rateText: "1 USDT = 3.66 AED",
+        receive: `${(numericAmount * RATE_USDT_TO_AED).toLocaleString(undefined, {
+          maximumFractionDigits: 2,
+        })} AED`,
+      };
+    }
+
+    if (direction === "AED_TO_USDT") {
+      return {
+        rateText: "1 USDT = 3.69 AED",
+        receive: `${(numericAmount / RATE_AED_TO_USDT).toLocaleString(undefined, {
+          maximumFractionDigits: 2,
+        })} USDT`,
+      };
+    }
+
+    return null;
+  }, [isDubai, direction, numericAmount]);
 
   const onCityChange = (nextCity: City) => {
     setCity(nextCity);
@@ -210,6 +248,13 @@ Note: ${safeNote}${extraDubaiLine}`;
             </Field>
           </div>
 
+          {isDubai && dubaiEstimate && (
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <StatCard label={t.rate} value={dubaiEstimate.rateText} />
+              <StatCard label={t.estimatedReceive} value={dubaiEstimate.receive} />
+            </div>
+          )}
+
           <div className="mt-6">
             <button
               type="button"
@@ -231,5 +276,16 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
       <span className="block font-montserrat text-sm text-[#E5E5E5] mb-2">{label}</span>
       {children}
     </label>
+  );
+}
+
+function StatCard({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-lg border border-[rgba(20,160,73,0.35)] bg-[rgba(19,36,25,0.55)] px-3 py-3">
+      <p className="text-xs text-[#B8DDBF] font-montserrat">{label}</p>
+      <p className="text-white font-montserrat font-semibold mt-1 text-sm sm:text-base break-words">
+        {value}
+      </p>
+    </div>
   );
 }
