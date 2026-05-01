@@ -6,7 +6,6 @@ import MapSection from "@/components/MapSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
-import { LangProvider } from "@/context/LangContext";
 
 function TelegramIcon() {
   return (
@@ -33,58 +32,57 @@ function TelegramIcon() {
 
 export default function Index() {
   return (
-      <main className="w-full min-h-screen bg-brand-dark overflow-x-clip">
-        <div
-          className="fixed inset-0 pointer-events-none"
-          style={{
-            background: "radial-gradient(circle at 0% 0%, rgba(20,160,73,0.08) 0%, transparent 50%)",
-            zIndex: 0,
-          }}
-        />
+    <main className="w-full min-h-screen bg-brand-dark overflow-x-clip">
+      <div
+        className="fixed inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(circle at 0% 0%, rgba(20,160,73,0.08) 0%, transparent 50%)",
+          zIndex: 0,
+        }}
+      />
 
-        {/* Compact Telegram button */}
-        <div className="fixed top-3 md:top-6 right-0 z-30 md:z-50">
-          <a
-            href="https://t.me/seven_day_rates"
-            className="flex items-center gap-1.5 md:gap-3 bg-white pl-1.5 pr-3 md:pl-4 md:pr-12 py-1 md:py-2 shadow-xl"
-            style={{ borderRadius: "50px 0 0 50px" }}
-          >
-            <div className="scale-[0.62] md:scale-100 origin-right">
-              <TelegramIcon />
-            </div>
-            <span className="hidden md:block font-montserrat font-semibold text-[#0A170B] text-sm">
-              Telegram
-            </span>
-          </a>
-        </div>
+      {/* Telegram button */}
+      <div className="fixed top-3 md:top-6 right-0 z-30 md:z-50">
+        <a
+          href="https://t.me/seven_day_rates"
+          className="flex items-center gap-1.5 md:gap-3 bg-white pl-1.5 pr-3 md:pl-4 md:pr-12 py-1 md:py-2 shadow-xl"
+          style={{ borderRadius: "50px 0 0 50px" }}
+        >
+          <div className="scale-[0.62] md:scale-100 origin-right">
+            <TelegramIcon />
+          </div>
+          <span className="hidden md:block font-montserrat font-semibold text-[#0A170B] text-sm">
+            Telegram
+          </span>
+        </a>
+      </div>
 
-        <div className="relative z-10">
-          <Header />
-          <HeroSection />
+      <div className="relative z-10">
+        <Header />
+        <HeroSection />
 
-          <section className="py-6 md:py-10">
-            <CryptoTicker />
-          </section>
+        <section className="py-6 md:py-10">
+          <CryptoTicker />
+        </section>
 
-          {/* New: calculator block */}
-          <section className="py-4 md:py-8">
-            <RateCalculator />
-          </section>
+        <section className="py-4 md:py-8">
+          <RateCalculator />
+        </section>
 
-          <section className="py-6 md:py-10">
-            <MapSection />
-          </section>
+        <section className="py-6 md:py-10">
+          <MapSection />
+        </section>
 
-          <section className="py-6 md:py-10">
-            <WhyChooseUs />
-          </section>
+        <section className="py-6 md:py-10">
+          <WhyChooseUs />
+        </section>
 
-          <section className="py-6 md:py-10">
-            <ReviewsSection />
-          </section>
+        <section className="py-6 md:py-10">
+          <ReviewsSection />
+        </section>
 
-          <Footer />
-        </div>
-      </main>
+        <Footer />
+      </div>
+    </main>
   );
 }
