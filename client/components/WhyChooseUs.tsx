@@ -1,75 +1,75 @@
 import { useLang } from "@/context/LangContext";
 
-type ReviewItem = {
-  text: string;
-  author: string;
-  rating: number;
+type FeatureItem = { title: string; desc: string };
+
+type WhyChooseUsTranslations = {
+  heading: string;
+  subheading: string;
+  features: [FeatureItem[], FeatureItem[]];
 };
 
-const translations = {
+const translations: Record<"EN" | "RU", WhyChooseUsTranslations> = {
   EN: {
-    heading: "Reviews",
+    heading: "Why choose us",
     subheading:
-      "Our clients trust us with large and small exchanges every day. Here are a few real-style impressions about speed, support, and reliability:",
-    reviews: [
-      {
-        text: "I needed to exchange USDT to cash in Dubai on short notice. The manager confirmed the rate quickly, explained every step, and the whole deal was completed in under 20 minutes. Clear communication and no surprises.",
-        author: "Daniel M.",
-        rating: 5,
-      },
-      {
-        text: "What I value most is consistency. I’ve used this service multiple times for larger transfers, and the execution is always accurate. Support is responsive, polite, and available when you actually need help.",
-        author: "Emma K.",
-        rating: 5,
-      },
-      {
-        text: "As someone new to crypto exchange, I expected the process to be complicated. It wasn’t. The team explained the verification and timing in simple language, and I felt safe throughout the transaction.",
-        author: "Michael R.",
-        rating: 5,
-      },
-    ] as ReviewItem[],
+      "By choosing us, you get a reliable partner in the world of cryptocurrencies. Join us and start exchanging cryptocurrency with confidence.",
+    features: [
+      [
+        { title: "Global presence", desc: "20+ locations around the world (Dubai, London, Paris, Miami, etc.)" },
+        { title: "Large financial transactions", desc: "Exchange from $10,000 with no upper limit" },
+        { title: "Maximum speed", desc: "Transaction processing up to 5 minutes, withdrawal in 10–15 minutes" },
+        { title: "Low fees", desc: "From 0.1% on all transactions" },
+        { title: "Confidentiality", desc: "Guaranteed anonymity and protection of customer data" },
+      ],
+      [
+        { title: "Safety", desc: "High-level asset and transaction protection" },
+        { title: "High liquidity", desc: "Exchange of more than 50 cryptocurrencies with large volumes" },
+        { title: "Premium service", desc: "24/7 support in 10 languages" },
+        { title: "Flexible conditions", desc: "Individual offers for VIP clients" },
+        { title: "Reliability", desc: "98% positive feedback from users" },
+      ],
+    ],
   },
   RU: {
-    heading: "Отзывы",
+    heading: "Почему выбирают нас",
     subheading:
-      "Нам доверяют как небольшие, так и крупные обмены каждый день. Вот несколько отзывов о скорости, поддержке и надежности сервиса:",
-    reviews: [
-      {
-        text: "Нужно было срочно обменять USDT на наличные в Дубае. Менеджер быстро подтвердил курс, объяснил все шаги, и сделку закрыли меньше чем за 20 минут. Всё прозрачно и без неприятных сюрпризов.",
-        author: "Даниил М.",
-        rating: 5,
-      },
-      {
-        text: "Больше всего ценю стабильность. Обмениваю здесь не первый раз, в том числе крупные суммы — всё проходит четко. Поддержка всегда на связи, отвечает по делу и без задержек.",
-        author: "Екатерина К.",
-        rating: 5,
-      },
-      {
-        text: "Я новичок в крипте и думал, что будет сложно. На практике всё оказалось понятно: объяснили верификацию, сроки и риски простыми словами. На каждом этапе чувствовал себя спокойно.",
-        author: "Михаил Р.",
-        rating: 5,
-      },
-    ] as ReviewItem[],
+      "Выбирая нас, вы получаете надежного партнера в мире криптовалют. Присоединяйтесь и обменивайте криптовалюту с уверенностью.",
+    features: [
+      [
+        { title: "Глобальное присутствие", desc: "20+ локаций по всему миру (Дубай, Лондон, Париж, Майами и др.)" },
+        { title: "Крупные финансовые операции", desc: "Обмен от $10,000 без верхнего лимита" },
+        { title: "Максимальная скорость", desc: "Обработка сделки до 5 минут, вывод 10–15 минут" },
+        { title: "Низкие комиссии", desc: "От 0.1% на все операции" },
+        { title: "Конфиденциальность", desc: "Гарантированная анонимность и защита данных клиентов" },
+      ],
+      [
+        { title: "Безопасность", desc: "Высокий уровень защиты активов и транзакций" },
+        { title: "Высокая ликвидность", desc: "Обмен более 50 криптовалют с крупными объемами" },
+        { title: "Премиальный сервис", desc: "Поддержка 24/7 на 10 языках" },
+        { title: "Гибкие условия", desc: "Индивидуальные предложения для VIP-клиентов" },
+        { title: "Надежность", desc: "98% положительных отзывов пользователей" },
+      ],
+    ],
   },
 };
 
-export default function ReviewsSection() {
+export default function WhyChooseUs() {
   const { lang } = useLang();
   const t = translations[lang];
 
   return (
-    <section className="relative isolate w-full pt-6 md:pt-2 pb-14 md:pb-24 overflow-hidden">
-      {/* softer glow for mobile; stays behind content */}
+    <section className="relative isolate w-full pt-14 md:pt-24 pb-20 md:pb-24 overflow-hidden">
+      {/* glow — behind everything */}
       <div
-        className="absolute top-0 right-0 w-[420px] md:w-[600px] h-[420px] md:h-[600px] rounded-full pointer-events-none z-0"
+        className="absolute bottom-0 right-0 w-[520px] md:w-[700px] h-[520px] md:h-[700px] rounded-full pointer-events-none z-0"
         style={{
-          background: "radial-gradient(circle, rgba(20,160,73,0.22) 0%, transparent 72%)",
-          filter: "blur(95px)",
-          transform: "translate(35%, -35%)",
+          background: "radial-gradient(circle, rgba(20,160,73,0.26) 0%, transparent 72%)",
+          filter: "blur(110px)",
+          transform: "translate(30%, 30%)",
         }}
       />
 
-      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
         <div className="text-center mb-10 md:mb-16">
           <h2 className="font-gilroy font-semibold text-white text-3xl md:text-5xl lg:text-[56px] leading-tight mb-4">
             {t.heading}
@@ -79,49 +79,63 @@ export default function ReviewsSection() {
           </p>
         </div>
 
-        <div className="relative">
-          <div className="hidden lg:grid lg:grid-cols-3 lg:gap-8">
-            {t.reviews.map((review, i) => (
-              <ReviewCard key={i} {...review} />
-            ))}
-          </div>
-
-          <div className="lg:hidden -mx-4 px-4 sm:-mx-6 sm:px-6 flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
-            {t.reviews.map((review, i) => (
-              <div key={i} className="flex-shrink-0 w-[88%] sm:w-1/2 snap-start">
-                <ReviewCard {...review} />
-              </div>
-            ))}
-          </div>
-        </div>
+        <FeaturesGrid features={t.features} />
       </div>
     </section>
   );
 }
 
-function ReviewCard({ text, author, rating }: ReviewItem) {
+function FeaturesGrid({ features }: { features: [FeatureItem[], FeatureItem[]] }) {
+  const items = [...features[0], ...features[1]];
+
   return (
-    <div className="card-glass rounded-[12px] p-5 sm:p-7 md:p-10 flex flex-col gap-5 md:gap-6 min-h-[260px] border border-[rgba(20,160,73,0.45)]">
-      <p className="font-montserrat text-white text-sm sm:text-base md:text-lg leading-relaxed">{text}</p>
-      <p className="font-space-grotesk font-normal text-brand-green text-base sm:text-lg md:text-xl leading-relaxed">
-        {author}
-      </p>
-      <div className="flex gap-1">
-        {Array.from({ length: rating }).map((_, i) => (
-          <Star key={i} />
+    <>
+      {/* Mobile cards */}
+      <div className="md:hidden grid grid-cols-1 gap-4">
+        {items.map((f, i) => (
+          <div
+            key={i}
+            className="relative z-10 rounded-2xl px-5 py-6 border bg-[rgba(68,74,70,0.82)]"
+            style={{ borderColor: "rgba(20,160,73,0.5)", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.03)" }}
+          >
+            <h3 className="font-gilroy font-bold text-white text-[44px] sm:text-4xl mb-2 leading-tight text-center">
+              {f.title}
+            </h3>
+            <p className="font-montserrat text-[#E5E5E5] text-[32px] sm:text-base leading-relaxed text-center">
+              {f.desc}
+            </p>
+          </div>
         ))}
       </div>
-    </div>
+
+      {/* Desktop/Tablet table */}
+      <div className="hidden md:block relative border-r" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 border-t border-l" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
+          {features[0].map((f, i) => (
+            <FeatureCell key={i} title={f.title} desc={f.desc} />
+          ))}
+        </div>
+
+        <div className="w-full h-px" style={{ background: "linear-gradient(135deg, #14A049 0%, #23372A 44.76%, #536A5C 100%)" }} />
+
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 border-b border-l" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
+          {features[1].map((f, i) => (
+            <FeatureCell key={i} title={f.title} desc={f.desc} />
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 
-function Star() {
+function FeatureCell({ title, desc }: { title: string; desc: string }) {
   return (
-    <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
-      <path
-        d="M3.97199 0.148223C4.08791 -0.0494074 4.37362 -0.0494079 4.48954 0.148223L5.69366 2.2012C5.73619 2.27371 5.80718 2.32505 5.88936 2.34272L8.22436 2.84484C8.44978 2.89331 8.53853 3.16739 8.3843 3.33879L6.79469 5.10547C6.73806 5.1684 6.71066 5.25233 6.71925 5.33656L6.95978 7.69571C6.98308 7.9242 6.75147 8.09306 6.54106 8.00098L4.35104 7.04262C4.27437 7.00907 4.18717 7.00907 4.1105 7.04262L1.92047 8.00098C1.71006 8.09306 1.47845 7.9242 1.50175 7.69571L1.74228 5.33656C1.75087 5.25233 1.72347 5.1684 1.66684 5.10547L0.0772325 3.33879C-0.0769944 3.16739 0.0117509 2.89331 0.237175 2.84484L2.57217 2.34272C2.65435 2.32505 2.72534 2.27371 2.76787 2.2012L3.97199 0.148223Z"
-        fill="#D2AB67"
-      />
-    </svg>
+    <div
+      className="flex flex-col items-center justify-center text-center px-4 py-8 lg:py-10 border-r min-h-[180px]"
+      style={{ borderColor: "rgba(20,160,73,0.3)" }}
+    >
+      <h3 className="font-gilroy font-bold text-white text-base lg:text-lg mb-2 leading-snug break-words">{title}</h3>
+      <p className="font-montserrat text-[#E5E5E5] text-sm leading-relaxed">{desc}</p>
+    </div>
   );
 }
