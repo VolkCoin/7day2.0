@@ -3,8 +3,8 @@ import { useLang } from "@/context/LangContext";
 
 type Direction = "USDT_TO_AED" | "AED_TO_USDT";
 
-const RATE_USDT_TO_AED = 3.66; // 1 USDT = 3.66 AED (you give USDT)
-const RATE_AED_TO_USDT = 3.69; // 1 USDT = 3.69 AED (you give AED cash -> divide by 3.69)
+const RATE_USDT_TO_AED = 3.66; // 1 USDT = 3.66 AED
+const RATE_AED_TO_USDT = 3.69; // 1 USDT = 3.69 AED (AED -> USDT: divide by 3.69)
 
 const translations = {
   EN: {
@@ -38,9 +38,13 @@ export default function RateCalculator() {
   const t = translations[lang];
 
   const [direction, setDirection] = useState<Direction>("USDT_TO_AED");
-  const [amount, setAmount] = useState<number>(1000);
+  const [amountInput, setAmountInput] = useState("1000"); // string, чтобы можно было полностью очищать поле
 
-  const safeAmount = Number.isFinite(amount) && amount > 0 ? amount : 0;
+  const amount = useMemo(() => {
+    const normalized = amountInput.replace(",", ".");
+    const parsed = Number(normalized);
+    return Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
+  }, [amountInput]);
 
   const { giveCurrency, getCurrency, rateText, receiveAmount } = useMemo(() => {
     if (direction === "USDT_TO_AED") {
@@ -48,7 +52,7 @@ export default function RateCalculator() {
         giveCurrency: "USDT",
         getCurrency: "AED Cash",
         rateText: `1 USDT = ${RATE_USDT_TO_AED} AED`,
-        receiveAmount: safeAmount * RATE_USDT_TO_AED,
+        receiveAmount: amount * RATE_USDT_TO_AED,
       };
     }
 
@@ -56,9 +60,24 @@ export default function RateCalculator() {
       giveCurrency: "AED Cash",
       getCurrency: "USDT",
       rateText: `1 USDT = ${RATE_AED_TO_USDT} AED`,
-      receiveAmount: safeAmount / RATE_AED_TO_USDT,
+      receiveAmount: amount / RATE_AED_TO_USDT,
     };
-  }, [direction, safeAmount]);
+  }, [direction, amount]);
+
+  const handleAmountChange = (raw: string) => {
+    // Разрешаем только цифры + один разделитель (точка/запятая)
+    const cleaned = raw.replace(/[^\d.,]/g, "");
+    const parts = cleaned.split(/[.,]/);
+
+    if (parts.length <= 1) {
+      setAmountInput(cleaned);
+      return;
+    }
+
+    // Склеиваем в формат "целая.десятичная"
+    const next = `${parts[0]}.${parts.slice(1).join("")}`;
+    setAmountInput(next);
+  };
 
   return (
     <section id="rate-calculator" className="w-full py-8 md:py-12">
@@ -91,12 +110,19 @@ export default function RateCalculator() {
                 {t.youGive} ({giveCurrency})
               </label>
               <input
-                type="number"
-                min={0}
-                step="any"
-                value={amount}
-                onChange={(e) => setAmount(Number(e.target.value))}
-                className="w-full bg-[#132419] border border-[rgba(20,160,73,0.4)] rounded-lg px-3 py-2.5 text-white text-sm sm:text-base outline-none"
+                type="text"
+                inputMode="decimal"
+                value={amountInput}
+                onChange={(e) => handleAmountChange(e.target.value)}
+                placeholder="0"
+                className="
+                  w-full bg-[#132419] border border-[rgba(20,160,73,0.4)] rounded-lg
+                  px-3 py-2.5 text-white text-sm sm:text-base outline-none
+                  appearance-none
+                  [&::-webkit-outer-spin-button]:appearance-none
+                  [&::-webkit-inner-spin-button]:appearance-none
+                  [-moz-appearance:textfield]
+                "
               />
             </div>
           </div>
