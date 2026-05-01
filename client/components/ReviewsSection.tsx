@@ -58,7 +58,7 @@ export default function ReviewsSection() {
   const t = translations[lang];
 
   return (
-    <section className="w-full py-16 md:py-24 relative overflow-hidden">
+    <section className="w-full py-14 md:py-24 relative overflow-hidden">
       <div
         className="absolute -top-40 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
@@ -67,10 +67,10 @@ export default function ReviewsSection() {
         }}
       />
 
-      <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-16 relative z-10">
-        <div className="text-center mb-12 md:mb-16">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 relative z-10">
+        <div className="text-center mb-10 md:mb-16">
           <h2 className="font-gilroy font-semibold text-white text-3xl md:text-5xl lg:text-[56px] leading-tight mb-4">{t.heading}</h2>
-          <p className="font-montserrat text-[#E5E5E5] text-base md:text-lg lg:text-xl max-w-3xl mx-auto">{t.subheading}</p>
+          <p className="font-montserrat text-[#E5E5E5] text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto">{t.subheading}</p>
         </div>
 
         <div className="relative">
@@ -80,9 +80,9 @@ export default function ReviewsSection() {
             ))}
           </div>
 
-          <div className="lg:hidden flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
+          <div className="lg:hidden -mx-4 px-4 sm:-mx-6 sm:px-6 flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
             {t.reviews.map((review, i) => (
-              <div key={i} className="flex-shrink-0 w-full sm:w-1/2 snap-start">
+              <div key={i} className="flex-shrink-0 w-[88%] sm:w-1/2 snap-start">
                 <ReviewCard {...review} />
               </div>
             ))}
@@ -95,9 +95,9 @@ export default function ReviewsSection() {
 
 function ReviewCard({ text, author, rating }: ReviewItem) {
   return (
-    <div className="card-glass rounded-[10px] p-8 md:p-10 flex flex-col gap-6">
-      <p className="font-montserrat text-white text-base md:text-lg leading-relaxed">{text}</p>
-      <p className="font-space-grotesk font-normal text-brand-green text-lg md:text-xl leading-relaxed">{author}</p>
+    <div className="card-glass rounded-[10px] p-5 sm:p-7 md:p-10 flex flex-col gap-5 md:gap-6 min-h-[260px]">
+      <p className="font-montserrat text-white text-sm sm:text-base md:text-lg leading-relaxed">{text}</p>
+      <p className="font-space-grotesk font-normal text-brand-green text-base sm:text-lg md:text-xl leading-relaxed">{author}</p>
       <div className="flex gap-1">
         {Array.from({ length: rating }).map((_, i) => (
           <Star key={i} />
