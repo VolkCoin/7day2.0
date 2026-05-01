@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { useLang } from "@/context/LangContext";
 
-type City = "Dubai" | "Miami" | "Paris" | "Rio de Janeiro";
+type City = "Dubai" | "Miami" | "Paris" | "Rio de Janeiro" | "Other city";
 type Direction =
   | "USDT_TO_AED"
   | "AED_TO_USDT"
@@ -10,7 +10,9 @@ type Direction =
   | "USDT_TO_EUR"
   | "EUR_TO_USDT"
   | "USDT_TO_BRL"
-  | "BRL_TO_USDT";
+  | "BRL_TO_USDT"
+  | "USDT_TO_CASH"
+  | "CASH_TO_USDT";
 
 type Contact = "Telegram" | "WhatsApp";
 
@@ -19,6 +21,7 @@ const cityDirections: Record<City, Direction[]> = {
   Miami: ["USDT_TO_USD", "USD_TO_USDT"],
   Paris: ["USDT_TO_EUR", "EUR_TO_USDT"],
   "Rio de Janeiro": ["USDT_TO_BRL", "BRL_TO_USDT"],
+  "Other city": ["USDT_TO_CASH", "CASH_TO_USDT"],
 };
 
 const translations = {
@@ -41,6 +44,8 @@ const translations = {
       EUR_TO_USDT: "EUR Cash → USDT",
       USDT_TO_BRL: "USDT → BRL Cash",
       BRL_TO_USDT: "BRL Cash → USDT",
+      USDT_TO_CASH: "USDT → Cash",
+      CASH_TO_USDT: "Cash → USDT",
     } as Record<Direction, string>,
   },
   RU: {
@@ -62,6 +67,8 @@ const translations = {
       EUR_TO_USDT: "EUR наличные → USDT",
       USDT_TO_BRL: "USDT → BRL наличные",
       BRL_TO_USDT: "BRL наличные → USDT",
+      USDT_TO_CASH: "USDT → Наличные",
+      CASH_TO_USDT: "Наличные → USDT",
     } as Record<Direction, string>,
   },
 };
@@ -81,8 +88,7 @@ export default function RequestForm() {
 
   const onCityChange = (nextCity: City) => {
     setCity(nextCity);
-    const firstDirection = cityDirections[nextCity][0];
-    setDirection(firstDirection); // подстраиваем направление под город
+    setDirection(cityDirections[nextCity][0]);
   };
 
   const telegramUsername = "seven_day_rates";
@@ -128,6 +134,7 @@ export default function RequestForm() {
                 <option>Miami</option>
                 <option>Paris</option>
                 <option>Rio de Janeiro</option>
+                <option>Other city</option>
               </select>
             </Field>
 
@@ -183,11 +190,7 @@ export default function RequestForm() {
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 className="w-full bg-[#132419] border border-[rgba(20,160,73,0.4)] rounded-lg px-3 py-2.5 text-white"
-                placeholder={
-                  lang === "RU"
-                    ? "Например: сегодня до 20:00"
-                    : "e.g. today before 8 PM"
-                }
+                placeholder={lang === "RU" ? "Например: сегодня до 20:00" : "e.g. today before 8 PM"}
               />
             </Field>
           </div>
