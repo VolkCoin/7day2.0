@@ -58,8 +58,7 @@ export default function WhyChooseUs() {
   const t = translations[lang];
 
   return (
-    <section className="relative isolate w-full pt-14 md:pt-24 pb-20 md:pb-24 overflow-hidden">
-      {/* glow — behind everything */}
+    <section className="relative isolate w-full pt-12 md:pt-24 pb-14 md:pb-24 overflow-hidden">
       <div
         className="absolute bottom-0 right-0 w-[520px] md:w-[700px] h-[520px] md:h-[700px] rounded-full pointer-events-none z-0"
         style={{
@@ -70,7 +69,7 @@ export default function WhyChooseUs() {
       />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
-        <div className="text-center mb-10 md:mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <h2 className="font-gilroy font-semibold text-white text-3xl md:text-5xl lg:text-[56px] leading-tight mb-4">
             {t.heading}
           </h2>
@@ -90,25 +89,25 @@ function FeaturesGrid({ features }: { features: [FeatureItem[], FeatureItem[]] }
 
   return (
     <>
-      {/* Mobile cards */}
-      <div className="md:hidden grid grid-cols-1 gap-4">
+      {/* Mobile */}
+      <div className="md:hidden grid grid-cols-1 gap-3">
         {items.map((f, i) => (
           <div
             key={i}
-            className="relative z-10 rounded-2xl px-5 py-6 border bg-[rgba(68,74,70,0.82)]"
-            style={{ borderColor: "rgba(20,160,73,0.5)", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.03)" }}
+            className="relative z-10 rounded-xl px-4 py-4 border bg-[rgba(68,74,70,0.78)]"
+            style={{ borderColor: "rgba(20,160,73,0.45)" }}
           >
-            <h3 className="font-gilroy font-bold text-white text-[44px] sm:text-4xl mb-2 leading-tight text-center">
+            <h3 className="font-gilroy font-bold text-white text-[clamp(1.75rem,7vw,2.1rem)] leading-tight mb-2 text-center">
               {f.title}
             </h3>
-            <p className="font-montserrat text-[#E5E5E5] text-[32px] sm:text-base leading-relaxed text-center">
+            <p className="font-montserrat text-[#E5E5E5] text-[clamp(1.55rem,4.8vw,1rem)] leading-snug text-center">
               {f.desc}
             </p>
           </div>
         ))}
       </div>
 
-      {/* Desktop/Tablet table */}
+      {/* Desktop / Tablet */}
       <div className="hidden md:block relative border-r" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
         <div className="grid md:grid-cols-3 lg:grid-cols-5 border-t border-l" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
           {features[0].map((f, i) => (
