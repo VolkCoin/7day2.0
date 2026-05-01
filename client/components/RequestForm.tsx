@@ -13,7 +13,6 @@ type Direction =
   | "BRL_TO_USDT"
   | "USDT_TO_CASH"
   | "CASH_TO_USDT";
-type Contact = "Telegram" | "WhatsApp";
 
 const RATE_USDT_TO_AED = 3.66;
 const RATE_AED_TO_USDT = 3.69;
@@ -33,8 +32,7 @@ const translations = {
     direction: "Direction",
     amount: "Amount",
     city: "City",
-    contactMethod: "Contact method",
-    handle: "Your @username or phone",
+    handle: "Your Telegram @username",
     note: "Optional note",
     submit: "Create request",
     rate: "Rate",
@@ -53,7 +51,7 @@ const translations = {
     } as Record<Direction, string>,
     placeholders: {
       amount: "1000",
-      handle: "@username / +971...",
+      handle: "@username",
       note: "e.g. urgent, today before 8 PM",
     },
     dubaiLockRate: "Please lock rate for 15 minutes.",
@@ -64,8 +62,7 @@ const translations = {
     direction: "Направление",
     amount: "Сумма",
     city: "Город",
-    contactMethod: "Способ связи",
-    handle: "Ваш @username или телефон",
+    handle: "Ваш Telegram @username",
     note: "Комментарий (необязательно)",
     submit: "Создать заявку",
     rate: "Курс",
@@ -84,7 +81,7 @@ const translations = {
     } as Record<Direction, string>,
     placeholders: {
       amount: "1000",
-      handle: "@username / +971...",
+      handle: "@username",
       note: "например: срочно, сегодня до 20:00",
     },
     dubaiLockRate: "Прошу зафиксировать курс на 15 минут.",
@@ -98,7 +95,6 @@ export default function RequestForm() {
   const [city, setCity] = useState<City>("Dubai");
   const [direction, setDirection] = useState<Direction>("USDT_TO_AED");
   const [amount, setAmount] = useState("");
-  const [contactMethod, setContactMethod] = useState<Contact>("Telegram");
   const [handle, setHandle] = useState("");
   const [note, setNote] = useState("");
 
@@ -152,15 +148,13 @@ export default function RequestForm() {
 Город: ${city}
 Направление: ${t.directions[direction]}
 Сумма: ${safeAmount}
-Связь: ${contactMethod}
-Контакт: ${safeHandle}
+Telegram: ${safeHandle}
 Комментарий: ${safeNote}${extraDubaiLine}`
         : `New request:
 City: ${city}
 Direction: ${t.directions[direction]}
 Amount: ${safeAmount}
-Contact: ${contactMethod}
-Handle: ${safeHandle}
+Telegram: ${safeHandle}
 Note: ${safeNote}${extraDubaiLine}`;
 
     const text = encodeURIComponent(message);
@@ -214,17 +208,6 @@ Note: ${safeNote}${extraDubaiLine}`;
                 className="w-full bg-[#132419] border border-[rgba(20,160,73,0.4)] rounded-lg px-3 py-2.5 text-white"
                 placeholder={t.placeholders.amount}
               />
-            </Field>
-
-            <Field label={t.contactMethod}>
-              <select
-                value={contactMethod}
-                onChange={(e) => setContactMethod(e.target.value as Contact)}
-                className="w-full bg-[#132419] border border-[rgba(20,160,73,0.4)] rounded-lg px-3 py-2.5 text-white"
-              >
-                <option>Telegram</option>
-                <option>WhatsApp</option>
-              </select>
             </Field>
 
             <Field label={t.handle}>
