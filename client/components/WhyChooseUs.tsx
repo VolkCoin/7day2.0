@@ -58,7 +58,7 @@ export default function WhyChooseUs() {
   const t = translations[lang];
 
   return (
-    <section className="w-full py-14 md:py-24 relative overflow-hidden">
+      <section className="w-full py-14 md:py-24 pb-20 md:pb-24 relative overflow-hidden">
       <div
         className="absolute bottom-0 right-0 w-[700px] h-[700px] rounded-full pointer-events-none"
         style={{
