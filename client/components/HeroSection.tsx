@@ -41,10 +41,10 @@ export default function HeroSection() {
       />
 
       <div className="relative z-10 px-4 md:px-16 pt-6 pb-16 min-h-[620px] md:min-h-[760px] lg:min-h-[860px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-4 items-center h-full">
-          {/* LEFT */}
-          <div className="order-1 w-full max-w-[720px] lg:max-w-[760px] text-center md:text-left md:pr-6 lg:pr-10">
-            <h1 className="font-gilroy font-black text-white uppercase leading-[0.95] text-[clamp(2rem,5.2vw,5.4rem)]">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,56%),minmax(0,44%)] items-center h-full">
+          {/* LEFT COLUMN */}
+          <div className="order-1 z-20 w-full max-w-[860px] lg:max-w-[760px] xl:max-w-[820px] text-center lg:text-left">
+            <h1 className="font-gilroy font-black text-white uppercase leading-[0.92] text-[clamp(2rem,4.7vw,5.2rem)]">
               {t.titleLines.map((line) => (
                 <span key={line} className="block whitespace-nowrap">
                   {line}
@@ -52,11 +52,11 @@ export default function HeroSection() {
               ))}
             </h1>
 
-            <p className="mt-4 font-montserrat font-medium text-brand-green tracking-[0.01em] text-[clamp(1rem,2.2vw,1.8rem)] max-w-[28ch] md:max-w-[32ch]">
+            <p className="mt-5 font-montserrat font-medium text-brand-green text-[clamp(1rem,1.85vw,2rem)] leading-[1.3] max-w-[30ch] mx-auto lg:mx-0">
               {t.subtitle}
             </p>
 
-            <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+            <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <button
                 onClick={scrollToCalculator}
                 className="bg-white text-[#0A170B] font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors"
@@ -72,7 +72,7 @@ export default function HeroSection() {
               </button>
             </div>
 
-            <div className="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
+            <div className="mt-5 flex flex-wrap gap-2 justify-center lg:justify-start">
               {t.trust.map((item) => (
                 <span
                   key={item}
@@ -85,7 +85,7 @@ export default function HeroSection() {
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="order-2 relative flex justify-end items-end">
+          <div className="order-2 relative z-10 flex justify-end items-end mt-6 lg:mt-0">
             <div
               className="absolute bottom-0 left-0 right-0 h-24 md:h-40 pointer-events-none z-10"
               style={{ background: "linear-gradient(to top, #0A170B 0%, transparent 100%)" }}
@@ -95,11 +95,11 @@ export default function HeroSection() {
               alt="Crypto Exchange"
               className="
                 block h-auto object-contain max-w-none
-                w-[126%] -mr-[16%] -mb-2
-                sm:w-[114%] sm:-mr-[10%]
-                md:w-[108%] md:-mr-[6%] md:mb-0
-                lg:w-[112%] lg:-mr-[10%]
-                max-h-[430px] sm:max-h-[520px] md:max-h-[700px]
+                w-[122%] -mr-[14%] -mb-2
+                sm:w-[112%] sm:-mr-[8%]
+                lg:w-[128%] lg:-mr-[22%] lg:mb-0
+                xl:w-[132%] xl:-mr-[24%]
+                max-h-[430px] sm:max-h-[520px] lg:max-h-[760px]
               "
               style={{ transform: "rotate(1.5deg)" }}
             />
