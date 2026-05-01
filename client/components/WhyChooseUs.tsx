@@ -12,12 +12,12 @@ const translations: Record<"EN" | "RU", WhyChooseUsTranslations> = {
   EN: {
     heading: "Why choose us",
     subheading:
-      "By choosing us, you get a reliable partner in the world of cryptocurrencies. Join us and start exchanging cryptocurrency with confidence",
+      "By choosing us, you get a reliable partner in the world of cryptocurrencies. Join us and start exchanging cryptocurrency with confidence.",
     features: [
       [
         { title: "Global presence", desc: "20+ locations around the world (Dubai, London, Paris, Miami, etc.)" },
         { title: "Large financial transactions", desc: "Exchange from $10,000 with no upper limit" },
-        { title: "Maximum speed", desc: "Transaction processing up to 5 minutes, withdrawal in 10-15 minutes" },
+        { title: "Maximum speed", desc: "Transaction processing up to 5 minutes, withdrawal in 10–15 minutes" },
         { title: "Low fees", desc: "From 0.1% on all transactions" },
         { title: "Confidentiality", desc: "Guaranteed anonymity and protection of customer data" },
       ],
@@ -33,12 +33,12 @@ const translations: Record<"EN" | "RU", WhyChooseUsTranslations> = {
   RU: {
     heading: "Почему выбирают нас",
     subheading:
-      "Выбирая нас, вы получаете надежного партнера в мире криптовалют. Присоединяйтесь и обменивайте криптовалюту с уверенностью",
+      "Выбирая нас, вы получаете надежного партнера в мире криптовалют. Присоединяйтесь и обменивайте криптовалюту с уверенностью.",
     features: [
       [
         { title: "Глобальное присутствие", desc: "20+ локаций по всему миру (Дубай, Лондон, Париж, Майами и др.)" },
         { title: "Крупные финансовые операции", desc: "Обмен от $10,000 без верхнего лимита" },
-        { title: "Максимальная скорость", desc: "Обработка сделки до 5 минут, вывод 10-15 минут" },
+        { title: "Максимальная скорость", desc: "Обработка сделки до 5 минут, вывод 10–15 минут" },
         { title: "Низкие комиссии", desc: "От 0.1% на все операции" },
         { title: "Конфиденциальность", desc: "Гарантированная анонимность и защита данных клиентов" },
       ],
@@ -58,17 +58,18 @@ export default function WhyChooseUs() {
   const t = translations[lang];
 
   return (
-      <section className="w-full py-14 md:py-24 pb-20 md:pb-24 relative overflow-hidden">
+    <section className="relative isolate w-full pt-14 md:pt-24 pb-20 md:pb-24 overflow-hidden">
+      {/* glow — behind everything */}
       <div
-        className="absolute bottom-0 right-0 w-[700px] h-[700px] rounded-full pointer-events-none"
+        className="absolute bottom-0 right-0 w-[520px] md:w-[700px] h-[520px] md:h-[700px] rounded-full pointer-events-none z-0"
         style={{
-          background: "radial-gradient(circle, rgba(20,160,73,0.35) 0%, transparent 70%)",
-          filter: "blur(120px)",
+          background: "radial-gradient(circle, rgba(20,160,73,0.26) 0%, transparent 72%)",
+          filter: "blur(110px)",
           transform: "translate(30%, 30%)",
         }}
       />
 
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16 relative z-10">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
         <div className="text-center mb-10 md:mb-16">
           <h2 className="font-gilroy font-semibold text-white text-3xl md:text-5xl lg:text-[56px] leading-tight mb-4">
             {t.heading}
@@ -89,25 +90,25 @@ function FeaturesGrid({ features }: { features: [FeatureItem[], FeatureItem[]] }
 
   return (
     <>
-      {/* Mobile: stacked cards */}
-      <div className="md:hidden grid grid-cols-1 gap-3">
+      {/* Mobile cards */}
+      <div className="md:hidden grid grid-cols-1 gap-4">
         {items.map((f, i) => (
           <div
             key={i}
-            className="card-glass rounded-xl px-4 py-5 border"
-            style={{ borderColor: "rgba(20,160,73,0.35)" }}
+            className="relative z-10 rounded-2xl px-5 py-6 border bg-[rgba(68,74,70,0.82)]"
+            style={{ borderColor: "rgba(20,160,73,0.5)", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.03)" }}
           >
-            <h3 className="font-gilroy font-bold text-white text-xl leading-tight mb-2 text-center">
+            <h3 className="font-gilroy font-bold text-white text-[44px] sm:text-4xl mb-2 leading-tight text-center">
               {f.title}
             </h3>
-            <p className="font-montserrat text-[#E5E5E5] text-base leading-relaxed text-center">
+            <p className="font-montserrat text-[#E5E5E5] text-[32px] sm:text-base leading-relaxed text-center">
               {f.desc}
             </p>
           </div>
         ))}
       </div>
 
-      {/* Desktop/tablet: grid table */}
+      {/* Desktop/Tablet table */}
       <div className="hidden md:block relative border-r" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
         <div className="grid md:grid-cols-3 lg:grid-cols-5 border-t border-l" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
           {features[0].map((f, i) => (
