@@ -46,8 +46,15 @@ export default function MapSection() {
   const t = translations[lang];
 
   return (
-    <section className="relative w-full py-10 md:py-16 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+    <section className="relative isolate w-full py-10 md:py-16 overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          background: "radial-gradient(circle at 85% 20%, rgba(20,160,73,0.18) 0%, transparent 55%)",
+        }}
+      />
+
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
         <div className="card-glass rounded-2xl p-5 sm:p-7 md:p-10 border border-[rgba(20,160,73,0.4)]">
           <div className="text-center mb-8 md:mb-10">
             <h2 className="font-gilroy font-semibold text-white text-3xl md:text-5xl leading-tight mb-3">
@@ -64,12 +71,8 @@ export default function MapSection() {
                 key={i}
                 className="rounded-xl border border-[rgba(20,160,73,0.35)] bg-[rgba(68,74,70,0.45)] px-4 py-5 md:px-5 md:py-6"
               >
-                <h3 className="font-gilroy font-bold text-white text-xl md:text-2xl mb-2">
-                  {step.title}
-                </h3>
-                <p className="font-montserrat text-[#E5E5E5] text-sm md:text-base leading-relaxed">
-                  {step.desc}
-                </p>
+                <h3 className="font-gilroy font-bold text-white text-xl md:text-2xl mb-2">{step.title}</h3>
+                <p className="font-montserrat text-[#E5E5E5] text-sm md:text-base leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
