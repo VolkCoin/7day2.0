@@ -38,16 +38,6 @@ export default function Footer() {
                 Telegram
               </a>
             </li>
-            <li>
-              <a href="mailto:support@7dayrates.com" className="hover:text-white">
-                support@7dayrates.com
-              </a>
-            </li>
-            <li>
-              <a href="https://wa.me/971500000000" className="hover:text-white">
-                WhatsApp
-              </a>
-            </li>
           </ul>
         </div>
 
