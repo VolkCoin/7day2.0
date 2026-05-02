@@ -46,7 +46,7 @@ export default function MapSection() {
   const t = translations[lang];
 
   return (
-    <section className="relative isolate w-full py-10 md:py-16 overflow-hidden">
+    <section className="relative isolate w-full py-6 md:py-8 overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none z-0"
         style={{
