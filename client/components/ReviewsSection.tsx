@@ -99,7 +99,7 @@ export default function ReviewsSection() {
   const t = translations[lang];
 
   return (
-    <section className="relative isolate w-full py-14 md:py-24 overflow-hidden">
+    <section className="relative isolate w-full py-7 md:py-10 overflow-hidden">
       <div
         className="absolute top-0 right-0 w-[420px] md:w-[600px] h-[420px] md:h-[600px] rounded-full pointer-events-none z-0"
         style={{
