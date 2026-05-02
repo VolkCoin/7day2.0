@@ -33,14 +33,6 @@ function TelegramIcon() {
 export default function Index() {
   return (
     <main className="w-full min-h-screen bg-brand-dark overflow-x-clip">
-      <div
-        className="fixed inset-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(circle at 0% 0%, rgba(20,160,73,0.08) 0%, transparent 50%)",
-          zIndex: 0,
-        }}
-      />
-
       {/* Telegram button */}
       <div className="fixed top-3 md:top-6 right-0 z-30 md:z-50">
         <a
