@@ -25,10 +25,12 @@ export default function HeroSection() {
     window.open("https://t.me/seven_day_rates", "_blank", "noopener,noreferrer");
   };
 
-  const scrollToCalculator = () => {
-    const el = document.getElementById("rate-calculator");
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const scrollToRequest = () => {
+  const el = document.getElementById("create-request");
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
 
   return (
     <section className="relative w-full overflow-hidden min-h-[620px] md:min-h-[760px] lg:min-h-[860px]">
