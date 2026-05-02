@@ -59,10 +59,9 @@ export default function HeroSection() {
             </p>
 
             <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-              <button
-                onClick={scrollToCalculator}
-                className="bg-white text-[#0A170B] font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors"
-              >
+              <button onClick={scrollToRequest} ...>
+                {t.ctaPrimary}
+              </button>
                 {t.ctaPrimary}
               </button>
 
