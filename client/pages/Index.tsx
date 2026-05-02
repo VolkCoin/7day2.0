@@ -1,73 +1,92 @@
-import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import MapSection from "@/components/MapSection";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import ReviewsSection from "@/components/ReviewsSection";
-import Footer from "@/components/Footer";
-import RequestForm from "@/components/RequestForm";
+import { useLang } from "@/context/LangContext";
 
-function TelegramIcon() {
-  return (
-    <svg width="52" height="52" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M42 84C65.196 84 84 65.196 84 42C84 18.804 65.196 0 42 0C18.804 0 0 18.804 0 42C0 65.196 18.804 84 42 84Z"
-        fill="url(#tg_fixed_grad)"
-      />
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M19.0116 41.5567C31.2554 36.2222 39.4199 32.7054 43.505 31.0063C55.1689 26.1549 57.5925 25.3121 59.1722 25.2843C59.5197 25.2782 60.2965 25.3643 60.7997 25.7726C61.2246 26.1174 61.3415 26.5831 61.3975 26.91C61.4534 27.2369 61.5231 27.9816 61.4677 28.5634C60.8356 35.2046 58.1007 51.321 56.7093 58.7593C56.1205 61.9067 54.9613 62.962 53.839 63.0653C51.4 63.2897 49.5479 61.4534 47.1856 59.9049C43.489 57.4817 41.4007 55.9733 37.8126 53.6088C33.6659 50.8762 36.354 49.3743 38.7172 46.9198C39.3357 46.2774 50.082 36.5027 50.29 35.616C50.3161 35.5051 50.3402 35.0918 50.0946 34.8735C49.849 34.6552 49.4866 34.7298 49.225 34.7892C48.8543 34.8733 42.949 38.7765 31.5092 46.4987C29.833 47.6497 28.3147 48.2105 26.9544 48.1811C25.4548 48.1487 22.5702 47.3332 20.4257 46.6362C17.7955 45.7812 15.705 45.3291 15.887 43.8771C15.9818 43.1208 17.0234 42.3473 19.0116 41.5567Z"
-        fill="white"
-      />
-      <defs>
-        <linearGradient id="tg_fixed_grad" x1="42" y1="0" x2="42" y2="83.377" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#2AABEE" />
-          <stop offset="1" stopColor="#229ED9" />
-        </linearGradient>
-      </defs>
-    </svg>
-  );
-}
+const translations = {
+  EN: {
+    title: "How it works",
+    subtitle: "A simple and transparent exchange flow from request to completion.",
+    steps: [
+      {
+        title: "1. Create request",
+        desc: "Choose city, direction and amount in the form.",
+      },
+      {
+        title: "2. Confirm fixed rate",
+        desc: "Manager confirms final terms and locks rate (up to 15 min).",
+      },
+      {
+        title: "3. Complete exchange",
+        desc: "You receive cash/USDT with step-by-step support in Telegram.",
+      },
+    ],
+    cta: "Start exchange",
+  },
+  RU: {
+    title: "Как проходит обмен",
+    subtitle: "Простой и прозрачный процесс: от заявки до завершения сделки.",
+    steps: [
+      {
+        title: "1. Создайте заявку",
+        desc: "Выберите город, направление и сумму в форме.",
+      },
+      {
+        title: "2. Подтвердите фиксированный курс",
+        desc: "Менеджер подтверждает условия и фиксирует курс (до 15 минут).",
+      },
+      {
+        title: "3. Завершите обмен",
+        desc: "Вы получаете наличные/USDT с пошаговой поддержкой в Telegram.",
+      },
+    ],
+    cta: "Начать обмен",
+  },
+};
 
-export default function Index() {
+export default function MapSection() {
+  const { lang } = useLang();
+  const t = translations[lang];
+
   return (
-    <main className="w-full min-h-screen bg-brand-dark overflow-x-clip">
-      {/* Telegram button */}
-      <div className="fixed top-3 md:top-6 right-3 z-30 md:z-50">
-        <a
-          href="https://t.me/seven_day_rates"
-          className="group flex items-center justify-center md:justify-start bg-white h-[52px] w-[52px] md:hover:w-[210px] md:w-[52px] overflow-hidden rounded-full shadow-xl transition-all duration-300"
-        >
-          <div className="scale-[0.62] md:scale-100 shrink-0">
-            <TelegramIcon />
+    <section className="relative isolate w-full py-6 md:py-8 overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          background: "radial-gradient(circle at 85% 20%, rgba(20,160,73,0.18) 0%, transparent 55%)",
+        }}
+      />
+
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-16">
+        <div className="card-glass rounded-2xl p-5 sm:p-7 md:p-10 border border-[rgba(20,160,73,0.4)]">
+          <div className="text-center mb-8 md:mb-10">
+            <h2 className="font-gilroy font-semibold text-white text-3xl md:text-5xl leading-tight mb-3">
+              {t.title}
+            </h2>
+            <p className="font-montserrat text-[#E5E5E5] text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+              {t.subtitle}
+            </p>
           </div>
-          <span className="hidden md:block max-w-0 opacity-0 group-hover:max-w-[120px] group-hover:opacity-100 transition-all duration-300 whitespace-nowrap font-montserrat font-semibold text-[#0A170B] text-sm">
-            Telegram
-          </span>
-        </a>
-      </div>
 
-      <div className="relative z-10">
-        <Header />
-        <HeroSection />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
+            {t.steps.map((step, i) => (
+              <div
+                key={i}
+                className="rounded-xl border border-[rgba(20,160,73,0.35)] bg-[rgba(68,74,70,0.45)] px-4 py-5 md:px-5 md:py-6"
+              >
+                <h3 className="font-gilroy font-bold text-white text-xl md:text-2xl mb-2">{step.title}</h3>
+                <p className="font-montserrat text-[#E5E5E5] text-sm md:text-base leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
 
-        <section className="py-3 md:py-5">
-          <RequestForm />
-        </section>
-        
-        <section className="py-3 md:py-5">
-          <MapSection />
-        </section>
-        
-        <section className="py-3 md:py-5">
-          <WhyChooseUs />
-        </section>
-        
-        <section className="py-3 md:py-5">
-          <ReviewsSection />
-        </section>
-        <Footer />
+          <div className="flex justify-center">
+            <button
+              className="bg-white text-[#0A170B] font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_14px_30px_rgba(255,255,255,0.22)] active:translate-y-0 active:scale-100"
+              onClick={() => window.open("https://t.me/seven_day_rates", "_blank")}
+            >
+              {t.cta}
+            </button>
+          </div>
+        </div>
       </div>
-    </main>
+    </section>
   );
 }
