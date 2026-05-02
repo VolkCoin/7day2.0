@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import CryptoTicker from "@/components/CryptoTicker";
 import MapSection from "@/components/MapSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ReviewsSection from "@/components/ReviewsSection";
@@ -60,10 +59,6 @@ export default function Index() {
       <div className="relative z-10">
         <Header />
         <HeroSection />
-
-        <section className="py-6 md:py-10">
-          <CryptoTicker />
-        </section>
 
         <section className="py-4 md:py-8">
           <RequestForm />
