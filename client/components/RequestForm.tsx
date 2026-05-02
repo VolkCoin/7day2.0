@@ -99,6 +99,7 @@ export default function RequestForm() {
   const [handle, setHandle] = useState("");
   const [note, setNote] = useState("");
   const [isSending, setIsSending] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
   const availableDirections = useMemo(() => cityDirections[city], [city]);
   const isDubai = city === "Dubai";
@@ -141,6 +142,7 @@ export default function RequestForm() {
   const submit = async () => {
     if (isSending) return;
     setIsSending(true);
+    setSubmitStatus(null);
     try {
       const payload: ExchangeRequestPayload = {
         city,
@@ -168,14 +170,17 @@ export default function RequestForm() {
         throw new Error(raw || `Request failed (${response.status})`);
       }
 
-      alert(lang === "RU" ? "Заявка отправлена ✅" : "Request sent ✅");
+      setSubmitStatus({
+        type: "success",
+        message: lang === "RU" ? "Заявка успешно отправлена. Менеджер скоро свяжется с вами." : "Request sent successfully. Our manager will contact you shortly.",
+      });
       setAmount("");
       setHandle("");
       setNote("");
     } catch (error) {
       const details = error instanceof Error ? error.message : "";
       const prefix = lang === "RU" ? "Ошибка отправки." : "Failed to send.";
-      alert(`${prefix} ${details}`.trim());
+      setSubmitStatus({ type: "error", message: `${prefix} ${details}`.trim() });
     } finally {
       setIsSending(false);
     }
@@ -255,6 +260,21 @@ export default function RequestForm() {
             <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <StatCard label={t.rate} value={dubaiEstimate.rateText} />
               <StatCard label={t.estimatedReceive} value={dubaiEstimate.receive} />
+            </div>
+          )}
+
+
+          {submitStatus && (
+            <div
+              className={`mt-4 rounded-lg border px-4 py-3 text-sm font-montserrat ${
+                submitStatus.type === "success"
+                  ? "border-emerald-400/60 bg-emerald-500/10 text-emerald-100"
+                  : "border-red-400/60 bg-red-500/10 text-red-100"
+              }`}
+              role="status"
+              aria-live="polite"
+            >
+              {submitStatus.message}
             </div>
           )}
 
