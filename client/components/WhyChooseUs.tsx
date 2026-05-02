@@ -96,21 +96,22 @@ function FeaturesGrid({ features }: { features: [FeatureItem[], FeatureItem[]] }
       </div>
 
       {/* Desktop / Tablet */}
-      <div className="hidden md:block relative border-r" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
-        <div className="grid md:grid-cols-3 lg:grid-cols-5 border-t border-l" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
-          {features[0].map((f, i) => (
-            <FeatureCell key={i} title={f.title} desc={f.desc} />
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+          {items.map((f, i) => (
+            <div
+              key={i}
+              className="rounded-xl border border-[rgba(20,160,73,0.35)] bg-[rgba(68,74,70,0.45)] px-5 py-7 text-center min-h-[180px] flex flex-col justify-center"
+            >
+              <h3 className="font-gilroy font-bold text-white text-2xl md:text-3xl leading-tight mb-3">
+                {f.title}
+              </h3>
+              <p className="font-montserrat text-[#E5E5E5] text-base md:text-lg leading-relaxed">
+                {f.desc}
+              </p>
+            </div>
           ))}
         </div>
-
-        <div className="w-full h-px" style={{ background: "linear-gradient(135deg, #14A049 0%, #23372A 44.76%, #536A5C 100%)" }} />
-
-        <div className="grid md:grid-cols-3 lg:grid-cols-5 border-b border-l" style={{ borderColor: "rgba(20,160,73,0.3)" }}>
-          {features[1].map((f, i) => (
-            <FeatureCell key={i} title={f.title} desc={f.desc} />
-          ))}
-        </div>
-      </div>
+      
     </>
   );
 }
