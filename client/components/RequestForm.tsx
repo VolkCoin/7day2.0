@@ -242,7 +242,7 @@ Note: ${safeNote}${extraDubaiLine}`;
             <button
               type="button"
               onClick={submit}
-              className="w-full sm:w-auto bg-white text-[#0A170B] font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+              className="w-full sm:w-auto bg-white text-[#0A170B] font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_14px_30px_rgba(255,255,255,0.22)] active:translate-y-0 active:scale-100"
             >
               {t.submit}
             </button>
