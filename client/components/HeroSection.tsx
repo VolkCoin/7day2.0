@@ -127,23 +127,25 @@ export default function HeroSection() {
               className="absolute bottom-0 left-0 right-0 h-24 md:h-40 pointer-events-none z-10"
               style={{ background: "linear-gradient(to top, #0A170B 0%, transparent 100%)" }}
             />
-            <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/91655a458e219928683fd76dd6f9d0f9738e4ffe?width=1697"
-              alt="Crypto Exchange"
-              className="
-                block h-auto object-contain max-w-none animate-hero-image
-                w-[122%] -mr-[14%] -mb-2
-                sm:w-[112%] sm:-mr-[8%]
-                lg:w-[128%] lg:-mr-[22%] lg:mb-0
-                xl:w-[132%] xl:-mr-[24%]
-                max-h-[390px] sm:max-h-[500px] lg:max-h-[700px]
-              "
-              style={{
-                transform: `rotate(1.5deg) translate3d(${parallax.x * 20}px, ${parallax.y * 20}px, 0)`,
-                transition: "transform 250ms ease-out",
-                willChange: "transform",
-              }}
-            />
+            <div className="animate-hero-image">
+              <img
+                src="https://api.builder.io/api/v1/image/assets/TEMP/91655a458e219928683fd76dd6f9d0f9738e4ffe?width=1697"
+                alt="Crypto Exchange"
+                className="
+                  block h-auto object-contain max-w-none
+                  w-[122%] -mr-[14%] -mb-2
+                  sm:w-[112%] sm:-mr-[8%]
+                  lg:w-[128%] lg:-mr-[22%] lg:mb-0
+                  xl:w-[132%] xl:-mr-[24%]
+                  max-h-[390px] sm:max-h-[500px] lg:max-h-[700px]
+                "
+                style={{
+                  transform: `translate3d(${parallax.x * 20}px, ${parallax.y * 20}px, 0)`,
+                  transition: "transform 250ms ease-out",
+                  willChange: "transform",
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
