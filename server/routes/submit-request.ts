@@ -51,8 +51,15 @@ export const handleSubmitRequest: RequestHandler = async (req, res) => {
   });
 
   if (!tgResponse.ok) {
-    const errorText = await tgResponse.text();
-    res.status(502).json({ ok: false, error: errorText });
+    const raw = await tgResponse.text();
+    let reason = raw;
+    try {
+      const parsed = JSON.parse(raw) as { description?: string };
+      if (parsed?.description) reason = parsed.description;
+    } catch {
+      // keep raw text
+    }
+    res.status(502).json({ ok: false, error: reason });
     return;
   }
 
