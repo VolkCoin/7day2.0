@@ -58,16 +58,6 @@ export default function HeroSection() {
       onMouseLeave={handlePointerLeave}
     >
       <div
-        className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none z-0 animate-float-soft"
-        style={{
-          background: "radial-gradient(circle, rgba(20,160,73,0.55) 0%, transparent 70%)",
-          filter: "blur(60px)",
-          transform: `translate3d(${parallax.x * -24}px, ${parallax.y * -24}px, 0)`,
-          transition: "transform 250ms ease-out",
-        }}
-      />
-
-      <div
         className="absolute top-24 right-[8%] w-40 h-40 rounded-full pointer-events-none z-0 animate-float-soft-delay"
         style={{
           background: "radial-gradient(circle, rgba(42,171,238,0.22) 0%, transparent 72%)",
