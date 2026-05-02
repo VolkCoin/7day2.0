@@ -6,16 +6,16 @@ const translations = {
     subtitle: "A simple and transparent exchange flow from request to completion.",
     steps: [
       {
-        title: "1. Send request",
-        desc: "Contact us in Telegram and specify pair, amount, and preferred city/payment method.",
+        title: "1. Create request",
+        desc: "Choose city, direction and amount in the form.",
       },
       {
-        title: "2. Lock rate",
-        desc: "We confirm terms, lock the rate for the agreed window, and provide exact instructions.",
+        title: "2. Confirm fixed rate",
+        desc: "Manager confirms final terms and locks rate (up to 15 min).",
       },
       {
         title: "3. Complete exchange",
-        desc: "You transfer funds and receive assets/cash quickly with manager support at every step.",
+        desc: "You receive cash/USDT with step-by-step support in Telegram.",
       },
     ],
     cta: "Start exchange",
@@ -25,16 +25,16 @@ const translations = {
     subtitle: "Простой и прозрачный процесс: от заявки до завершения сделки.",
     steps: [
       {
-        title: "1. Оставьте заявку",
-        desc: "Напишите нам в Telegram: укажите пару, сумму, город и удобный способ оплаты.",
+        title: "1. Создайте заявку",
+        desc: "Выберите город, направление и сумму в форме.",
       },
       {
-        title: "2. Фиксация курса",
-        desc: "Подтверждаем условия, фиксируем курс на согласованный период и даем точные инструкции.",
+        title: "2. Подтвердите фиксированный курс",
+        desc: "Менеджер подтверждает условия и фиксирует курс (до 15 минут).",
       },
       {
-        title: "3. Завершение обмена",
-        desc: "Вы переводите средства и быстро получаете активы/наличные с поддержкой менеджера на каждом этапе.",
+        title: "3. Завершите обмен",
+        desc: "Вы получаете наличные/USDT с пошаговой поддержкой в Telegram.",
       },
     ],
     cta: "Начать обмен",
