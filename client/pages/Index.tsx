@@ -5,6 +5,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
 import RequestForm from "@/components/RequestForm";
+import AmbientBackground from "@/components/AmbientBackground";
 
 function TelegramIcon() {
   return (
@@ -56,7 +57,9 @@ export default function Index() {
         </a>
       </div>
 
-      <div className="relative z-10">
+      <div className="relative">
+        <AmbientBackground />
+        <div className="relative z-10">
         <Header />
         <HeroSection />
 
@@ -76,6 +79,7 @@ export default function Index() {
           <ReviewsSection />
         </section>
         <Footer />
+        </div>
       </div>
     </main>
   );
