@@ -8,6 +8,10 @@ export default function AmbientBackground() {
       <div className="ambient-blob ambient-blob--one" />
       <div className="ambient-blob ambient-blob--two" />
       <div className="ambient-blob ambient-blob--three" />
+
+      <div className="ambient-coin ambient-coin--usdt">USDT · TRC20</div>
+      <div className="ambient-coin ambient-coin--btc">BTC</div>
+      <div className="ambient-coin ambient-coin--eth">ETH</div>
     </div>
   );
 }
