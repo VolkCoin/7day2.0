@@ -1,4 +1,5 @@
 import { useLang } from "@/context/LangContext";
+import { useMemo, useState, type MouseEventHandler } from "react";
 
 const translations = {
   EN: {
@@ -20,6 +21,12 @@ const translations = {
 export default function HeroSection() {
   const { lang } = useLang();
   const t = translations[lang];
+  const [parallax, setParallax] = useState({ x: 0, y: 0 });
+
+  const prefersReducedMotion = useMemo(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }, []);
 
   const openTelegram = () => {
     window.open("https://t.me/seven_day_rates", "_blank", "noopener,noreferrer");
@@ -32,13 +39,31 @@ export default function HeroSection() {
     }
   };
 
+  const handlePointerMove: MouseEventHandler<HTMLElement> = (event) => {
+    if (prefersReducedMotion) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    setParallax({ x, y });
+  };
+
+  const handlePointerLeave = () => {
+    setParallax({ x: 0, y: 0 });
+  };
+
   return (
-    <section className="relative w-full overflow-hidden min-h-[560px] md:min-h-[650px] lg:min-h-[700px]">
+    <section
+      className="relative w-full overflow-hidden min-h-[560px] md:min-h-[650px] lg:min-h-[700px]"
+      onMouseMove={handlePointerMove}
+      onMouseLeave={handlePointerLeave}
+    >
       <div
         className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none z-0 animate-float-soft"
         style={{
           background: "radial-gradient(circle, rgba(20,160,73,0.55) 0%, transparent 70%)",
           filter: "blur(60px)",
+          transform: `translate3d(${parallax.x * -24}px, ${parallax.y * -24}px, 0)`,
+          transition: "transform 250ms ease-out",
         }}
       />
 
@@ -47,6 +72,8 @@ export default function HeroSection() {
         style={{
           background: "radial-gradient(circle, rgba(42,171,238,0.22) 0%, transparent 72%)",
           filter: "blur(24px)",
+          transform: `translate3d(${parallax.x * 16}px, ${parallax.y * 16}px, 0)`,
+          transition: "transform 250ms ease-out",
         }}
       />
 
@@ -111,6 +138,11 @@ export default function HeroSection() {
                 xl:w-[132%] xl:-mr-[24%]
                 max-h-[390px] sm:max-h-[500px] lg:max-h-[700px]
               "
+              style={{
+                transform: `rotate(1.5deg) translate3d(${parallax.x * 20}px, ${parallax.y * 20}px, 0)`,
+                transition: "transform 250ms ease-out",
+                willChange: "transform",
+              }}
             />
           </div>
         </div>
