@@ -76,14 +76,14 @@ export default function HeroSection() {
             <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <button
                 onClick={scrollToRequest}
-                className="bg-white text-[#0A170B] font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+                className="bg-white text-[#0A170B] font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(255,255,255,0.2)] active:translate-y-0"
               >
                 {t.ctaPrimary}
               </button>
 
               <button
                 onClick={openTelegram}
-                className="border border-[rgba(20,160,73,0.5)] text-white font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg hover:bg-[rgba(20,160,73,0.12)] transition-colors"
+                className="border border-[rgba(20,160,73,0.5)] text-white font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg transition-all duration-300 hover:bg-[rgba(20,160,73,0.16)] hover:border-[rgba(20,160,73,0.95)] hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(20,160,73,0.25)] active:translate-y-0"
               >
                 {t.ctaSecondary}
               </button>
