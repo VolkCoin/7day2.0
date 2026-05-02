@@ -60,22 +60,21 @@ export default function Index() {
         <Header />
         <HeroSection />
 
-        <section className="py-4 md:py-8">
+        <section className="py-3 md:py-5">
           <RequestForm />
         </section>
         
-        <section className="py-6 md:py-10">
+        <section className="py-3 md:py-5">
           <MapSection />
         </section>
-
-        <section className="py-6 md:py-10">
+        
+        <section className="py-3 md:py-5">
           <WhyChooseUs />
         </section>
-
-        <section className="py-6 md:py-10">
+        
+        <section className="py-3 md:py-5">
           <ReviewsSection />
         </section>
-
         <Footer />
       </div>
     </main>
