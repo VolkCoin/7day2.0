@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import { ExchangeRequestPayload, ExchangeRequestResponse } from "@shared/api";
+import type { ExchangeRequestPayload, ExchangeRequestResponse } from "@shared/api";
 
 const escapeHtml = (value: string) =>
   value
