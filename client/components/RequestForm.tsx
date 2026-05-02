@@ -158,8 +158,10 @@ export default function RequestForm() {
       });
 
       if (!response.ok) {
-        const err = (await response.json().catch(() => ({}))) as { error?: string };
-        throw new Error(err.error || "Request failed");
+        const asJson = (await response.json().catch(() => null)) as { error?: string } | null;
+        if (asJson?.error) throw new Error(asJson.error);
+        const asText = await response.text().catch(() => "");
+        throw new Error(asText || `Request failed (${response.status})`);
       }
 
       alert(lang === "RU" ? "Заявка отправлена ✅" : "Request sent ✅");
