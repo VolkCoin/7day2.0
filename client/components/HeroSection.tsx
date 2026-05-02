@@ -57,16 +57,6 @@ export default function HeroSection() {
       onMouseMove={handlePointerMove}
       onMouseLeave={handlePointerLeave}
     >
-      <div
-        className="absolute top-24 right-[8%] w-40 h-40 rounded-full pointer-events-none z-0 animate-float-soft-delay"
-        style={{
-          background: "radial-gradient(circle, rgba(42,171,238,0.22) 0%, transparent 72%)",
-          filter: "blur(24px)",
-          transform: `translate3d(${parallax.x * 16}px, ${parallax.y * 16}px, 0)`,
-          transition: "transform 250ms ease-out",
-        }}
-      />
-
       <div className="relative z-10 px-4 md:px-16 pt-6 pb-8 md:pb-10 min-h-[560px] md:min-h-[650px] lg:min-h-[700px]">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,56%),minmax(0,44%)] items-center h-full">
           {/* LEFT */}
@@ -103,7 +93,7 @@ export default function HeroSection() {
               {t.trust.map((item) => (
                 <span
                   key={item}
-                  className="text-[11px] md:text-xs text-[#D8F6DF] border border-[rgba(20,160,73,0.45)] bg-[rgba(20,160,73,0.14)] px-3 py-1 rounded-full font-montserrat animate-float-soft-delay"
+                  className="text-[11px] md:text-xs text-[#D8F6DF] border border-[rgba(20,160,73,0.45)] bg-[rgba(20,160,73,0.14)] px-3 py-1 rounded-full font-montserrat"
                 >
                   {item}
                 </span>
@@ -117,11 +107,10 @@ export default function HeroSection() {
               className="absolute bottom-0 left-0 right-0 h-24 md:h-40 pointer-events-none z-10"
               style={{ background: "linear-gradient(to top, #0A170B 0%, transparent 100%)" }}
             />
-            <div className="animate-hero-image">
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/91655a458e219928683fd76dd6f9d0f9738e4ffe?width=1697"
-                alt="Crypto Exchange"
-                className="
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/91655a458e219928683fd76dd6f9d0f9738e4ffe?width=1697"
+              alt="Crypto Exchange"
+              className="
                   block h-auto object-contain max-w-none
                   w-[122%] -mr-[14%] -mb-2
                   sm:w-[112%] sm:-mr-[8%]
@@ -129,13 +118,12 @@ export default function HeroSection() {
                   xl:w-[132%] xl:-mr-[24%]
                   max-h-[390px] sm:max-h-[500px] lg:max-h-[700px]
                 "
-                style={{
-                  transform: `translate3d(${parallax.x * 20}px, ${parallax.y * 20}px, 0)`,
-                  transition: "transform 250ms ease-out",
-                  willChange: "transform",
-                }}
-              />
-            </div>
+              style={{
+                transform: `translate3d(${parallax.x * 20}px, ${parallax.y * 20}px, 0)`,
+                transition: "transform 250ms ease-out",
+                willChange: "transform",
+              }}
+            />
           </div>
         </div>
       </div>
