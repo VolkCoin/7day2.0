@@ -79,7 +79,7 @@ export default function MapSection() {
 
           <div className="flex justify-center">
             <button
-              className="bg-white text-[#0A170B] font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+              className="bg-white text-[#0A170B] font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_14px_30px_rgba(255,255,255,0.22)] active:translate-y-0 active:scale-100"
               onClick={() => window.open("https://t.me/seven_day_rates", "_blank")}
             >
               {t.cta}
