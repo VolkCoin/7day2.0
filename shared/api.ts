@@ -10,3 +10,16 @@
 export interface DemoResponse {
   message: string;
 }
+
+export interface ExchangeRequestPayload {
+  city: string;
+  direction: string;
+  amount: string;
+  telegram: string;
+  note: string;
+  lang: "EN" | "RU";
+}
+
+export interface ExchangeRequestResponse {
+  ok: boolean;
+}
