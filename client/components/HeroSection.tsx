@@ -35,10 +35,18 @@ export default function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden min-h-[560px] md:min-h-[650px] lg:min-h-[700px]">
       <div
-        className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none z-0"
+        className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none z-0 animate-float-soft"
         style={{
           background: "radial-gradient(circle, rgba(20,160,73,0.55) 0%, transparent 70%)",
           filter: "blur(60px)",
+        }}
+      />
+
+      <div
+        className="absolute top-24 right-[8%] w-40 h-40 rounded-full pointer-events-none z-0 animate-float-soft-delay"
+        style={{
+          background: "radial-gradient(circle, rgba(42,171,238,0.22) 0%, transparent 72%)",
+          filter: "blur(24px)",
         }}
       />
 
@@ -78,7 +86,7 @@ export default function HeroSection() {
               {t.trust.map((item) => (
                 <span
                   key={item}
-                  className="text-[11px] md:text-xs text-[#D8F6DF] border border-[rgba(20,160,73,0.45)] bg-[rgba(20,160,73,0.14)] px-3 py-1 rounded-full font-montserrat"
+                  className="text-[11px] md:text-xs text-[#D8F6DF] border border-[rgba(20,160,73,0.45)] bg-[rgba(20,160,73,0.14)] px-3 py-1 rounded-full font-montserrat animate-float-soft-delay"
                 >
                   {item}
                 </span>
@@ -96,14 +104,13 @@ export default function HeroSection() {
               src="https://api.builder.io/api/v1/image/assets/TEMP/91655a458e219928683fd76dd6f9d0f9738e4ffe?width=1697"
               alt="Crypto Exchange"
               className="
-                block h-auto object-contain max-w-none
+                block h-auto object-contain max-w-none animate-hero-image
                 w-[122%] -mr-[14%] -mb-2
                 sm:w-[112%] sm:-mr-[8%]
                 lg:w-[128%] lg:-mr-[22%] lg:mb-0
                 xl:w-[132%] xl:-mr-[24%]
                 max-h-[390px] sm:max-h-[500px] lg:max-h-[700px]
               "
-              style={{ transform: "rotate(1.5deg)" }}
             />
           </div>
         </div>
