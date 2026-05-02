@@ -33,16 +33,15 @@ export default function Index() {
   return (
     <main className="w-full min-h-screen bg-brand-dark overflow-x-clip">
       {/* Telegram button */}
-      <div className="fixed top-3 md:top-6 right-0 z-30 md:z-50">
+      <div className="fixed top-3 md:top-6 right-3 z-30 md:z-50">
         <a
           href="https://t.me/seven_day_rates"
-          className="flex items-center gap-1.5 md:gap-3 bg-white pl-1.5 pr-3 md:pl-4 md:pr-12 py-1 md:py-2 shadow-xl"
-          style={{ borderRadius: "50px 0 0 50px" }}
+          className="group flex items-center justify-center md:justify-start bg-white h-[52px] w-[52px] md:hover:w-[210px] md:w-[52px] overflow-hidden rounded-full shadow-xl transition-all duration-300"
         >
-          <div className="scale-[0.62] md:scale-100 origin-right">
+          <div className="scale-[0.62] md:scale-100 shrink-0">
             <TelegramIcon />
           </div>
-          <span className="hidden md:block font-montserrat font-semibold text-[#0A170B] text-sm">
+          <span className="hidden md:block max-w-0 opacity-0 group-hover:max-w-[120px] group-hover:opacity-100 transition-all duration-300 whitespace-nowrap font-montserrat font-semibold text-[#0A170B] text-sm">
             Telegram
           </span>
         </a>
