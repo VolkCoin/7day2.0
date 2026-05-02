@@ -13,41 +13,29 @@ const translations: Record<"EN" | "RU", WhyChooseUsTranslations> = {
     heading: "Why choose us",
     subheading:
       "By choosing us, you get a reliable partner in the world of cryptocurrencies. Join us and start exchanging cryptocurrency with confidence.",
-    features: [
-      [
-        { title: "Global presence", desc: "20+ locations around the world (Dubai, London, Paris, Miami, etc.)" },
-        { title: "Large financial transactions", desc: "Exchange from $10,000 with no upper limit" },
-        { title: "Maximum speed", desc: "Transaction processing up to 5 minutes, withdrawal in 10–15 minutes" },
-        { title: "Low fees", desc: "From 0.1% on all transactions" },
-        { title: "Confidentiality", desc: "Guaranteed anonymity and protection of customer data" },
-      ],
-      [
-        { title: "Safety", desc: "High-level asset and transaction protection" },
-        { title: "High liquidity", desc: "Exchange of more than 50 cryptocurrencies with large volumes" },
-        { title: "Premium service", desc: "24/7 support in 10 languages" },
-        { title: "Flexible conditions", desc: "Individual offers for VIP clients" },
-        { title: "Reliability", desc: "98% positive feedback from users" },
-      ],
+      features: [
+    [
+      { title: "Rate lock", desc: "Final quote can be locked for up to 15 minutes." },
+      { title: "Manual execution", desc: "Each deal is confirmed and processed by manager." },
     ],
-  },
+    [
+      { title: "City support", desc: "Dubai, Miami, Paris, Rio de Janeiro + other city on request." },
+      { title: "24/7 communication", desc: "Fast response in Telegram support chat." },
+    ],
+  ],
+},
   RU: {
     heading: "Почему выбирают нас",
     subheading:
       "Выбирая нас, вы получаете надежного партнера в мире криптовалют. Присоединяйтесь и обменивайте криптовалюту с уверенностью.",
-    features: [
+      features: [
       [
-        { title: "Глобальное присутствие", desc: "20+ локаций по всему миру (Дубай, Лондон, Париж, Майами и др.)" },
-        { title: "Крупные финансовые операции", desc: "Обмен от $10,000 без верхнего лимита" },
-        { title: "Максимальная скорость", desc: "Обработка сделки до 5 минут, вывод 10–15 минут" },
-        { title: "Низкие комиссии", desc: "От 0.1% на все операции" },
-        { title: "Конфиденциальность", desc: "Гарантированная анонимность и защита данных клиентов" },
+        { title: "Фиксация курса", desc: "Финальный курс можно зафиксировать до 15 минут." },
+        { title: "Ручное исполнение", desc: "Каждая сделка подтверждается и проводится менеджером." },
       ],
       [
-        { title: "Безопасность", desc: "Высокий уровень защиты активов и транзакций" },
-        { title: "Высокая ликвидность", desc: "Обмен более 50 криптовалют с крупными объемами" },
-        { title: "Премиальный сервис", desc: "Поддержка 24/7 на 10 языках" },
-        { title: "Гибкие условия", desc: "Индивидуальные предложения для VIP-клиентов" },
-        { title: "Надежность", desc: "98% положительных отзывов пользователей" },
+        { title: "Города", desc: "Dubai, Miami, Paris, Rio de Janeiro + другой город по запросу." },
+        { title: "Связь 24/7", desc: "Быстрый ответ в Telegram-чате поддержки." },
       ],
     ],
   },
