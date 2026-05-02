@@ -76,14 +76,14 @@ export default function HeroSection() {
             <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <button
                 onClick={scrollToRequest}
-                className="bg-white text-[#0A170B] font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(255,255,255,0.2)] active:translate-y-0"
+                className="bg-white text-[#0A170B] font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_14px_30px_rgba(255,255,255,0.24)] active:translate-y-0 active:scale-100"
               >
                 {t.ctaPrimary}
               </button>
 
               <button
                 onClick={openTelegram}
-                className="border border-[rgba(20,160,73,0.5)] text-white font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg transition-all duration-300 hover:bg-[rgba(20,160,73,0.16)] hover:border-[rgba(20,160,73,0.95)] hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(20,160,73,0.25)] active:translate-y-0"
+                className="border border-[rgba(20,160,73,0.5)] text-white font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg transition-all duration-300 hover:bg-[rgba(20,160,73,0.2)] hover:border-[rgba(20,160,73,0.95)] hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_14px_30px_rgba(20,160,73,0.28)] active:translate-y-0 active:scale-100"
               >
                 {t.ctaSecondary}
               </button>
