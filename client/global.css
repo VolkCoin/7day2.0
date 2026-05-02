@@ -138,4 +138,44 @@
   .gradient-border-h {
     background: linear-gradient(135deg, #14A049 0%, #23372A 44.76%, #536A5C 100%);
   }
+
+  .animate-float-soft {
+    animation: float-soft 6s ease-in-out infinite;
+  }
+
+  .animate-float-soft-delay {
+    animation: float-soft 7.5s ease-in-out 1.2s infinite;
+  }
+
+  .animate-hero-image {
+    animation: hero-image-drift 8s ease-in-out infinite;
+  }
+
+  @keyframes float-soft {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes hero-image-drift {
+    0%,
+    100% {
+      transform: rotate(1.5deg) translateY(0px);
+    }
+    50% {
+      transform: rotate(1.5deg) translateY(-10px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float-soft,
+    .animate-float-soft-delay,
+    .animate-hero-image {
+      animation: none;
+    }
+  }
 }
