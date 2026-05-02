@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { useLang } from "@/context/LangContext";
+import { ExchangeRequestPayload } from "@shared/api";
 
 type City = "Dubai" | "Miami" | "Paris" | "Rio de Janeiro" | "Other city";
 type Direction =
@@ -97,6 +98,7 @@ export default function RequestForm() {
   const [amount, setAmount] = useState("");
   const [handle, setHandle] = useState("");
   const [note, setNote] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   const availableDirections = useMemo(() => cityDirections[city], [city]);
   const isDubai = city === "Dubai";
@@ -136,29 +138,36 @@ export default function RequestForm() {
     setDirection(cityDirections[nextCity][0]);
   };
 
-  const submit = () => {
-    const extraDubaiLine = city === "Dubai" ? `\n${t.dubaiLockRate}` : "";
-    const safeAmount = amount.trim() || "-";
-    const safeHandle = handle.trim() || "-";
-    const safeNote = note.trim() || "-";
+  const submit = async () => {
+    if (isSending) return;
+    setIsSending(true);
+    try {
+      const payload: ExchangeRequestPayload = {
+        city,
+        direction: t.directions[direction],
+        amount: amount.trim() || "-",
+        telegram: handle.trim() || "-",
+        note: note.trim() || (city === "Dubai" ? t.dubaiLockRate : "-"),
+        lang,
+      };
 
-    const message =
-      lang === "RU"
-        ? `Новая заявка:
-Город: ${city}
-Направление: ${t.directions[direction]}
-Сумма: ${safeAmount}
-Telegram: ${safeHandle}
-Комментарий: ${safeNote}${extraDubaiLine}`
-        : `New request:
-City: ${city}
-Direction: ${t.directions[direction]}
-Amount: ${safeAmount}
-Telegram: ${safeHandle}
-Note: ${safeNote}${extraDubaiLine}`;
+      const response = await fetch("/api/request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-    const text = encodeURIComponent(message);
-    window.open(`https://t.me/seven_day_rates?text=${text}`, "_blank", "noopener,noreferrer");
+      if (!response.ok) throw new Error("Request failed");
+
+      alert(lang === "RU" ? "Заявка отправлена ✅" : "Request sent ✅");
+      setAmount("");
+      setHandle("");
+      setNote("");
+    } catch {
+      alert(lang === "RU" ? "Ошибка отправки. Попробуйте еще раз." : "Failed to send. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -242,9 +251,10 @@ Note: ${safeNote}${extraDubaiLine}`;
             <button
               type="button"
               onClick={submit}
+              disabled={isSending}
               className="w-full sm:w-auto bg-white text-[#0A170B] font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_14px_30px_rgba(255,255,255,0.22)] active:translate-y-0 active:scale-100"
             >
-              {t.submit}
+              {isSending ? (lang === "RU" ? "Отправка..." : "Sending...") : t.submit}
             </button>
           </div>
         </div>
