@@ -162,8 +162,8 @@ Note: ${safeNote}${extraDubaiLine}`;
   };
 
   return (
-    <section id="create-request" className="w-full py-8 md:py-12">
-      <div className="max-w-[980px] mx-auto px-4 sm:px-6 md:px-8">
+  <section id="create-request" className="w-full py-4 md:py-6">
+    <div className="max-w-[980px] mx-auto px-4 sm:px-6 md:px-8">
         <div className="card-glass rounded-2xl p-5 sm:p-6 md:p-8 border border-[rgba(20,160,73,0.45)]">
           <h2 className="font-gilroy font-semibold text-white text-2xl sm:text-3xl md:text-4xl mb-2">
             {t.title}
