@@ -46,7 +46,7 @@ export default function WhyChooseUs() {
   const t = translations[lang];
 
   return (
-    <section className="relative isolate w-full pt-12 md:pt-24 pb-14 md:pb-24 overflow-hidden">
+    <section className="relative isolate w-full pt-6 md:pt-10 pb-6 md:pb-10 overflow-hidden">
       <div
         className="absolute bottom-0 right-0 w-[520px] md:w-[700px] h-[520px] md:h-[700px] rounded-full pointer-events-none z-0"
         style={{
