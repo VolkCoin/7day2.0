@@ -26,14 +26,14 @@ export default function HeroSection() {
   };
 
   const scrollToRequest = () => {
-  const el = document.getElementById("create-request");
-  if (el) {
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-};
+    const el = document.getElementById("create-request");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
-    <section className="relative w-full overflow-hidden min-h-[620px] md:min-h-[760px] lg:min-h-[860px]">
+    <section className="relative w-full overflow-hidden min-h-[560px] md:min-h-[650px] lg:min-h-[700px]">
       <div
         className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none z-0"
         style={{
@@ -42,9 +42,9 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="relative z-10 px-4 md:px-16 pt-6 pb-16 min-h-[620px] md:min-h-[760px] lg:min-h-[860px]">
+      <div className="relative z-10 px-4 md:px-16 pt-6 pb-8 md:pb-10 min-h-[560px] md:min-h-[650px] lg:min-h-[700px]">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,56%),minmax(0,44%)] items-center h-full">
-          {/* LEFT COLUMN */}
+          {/* LEFT */}
           <div className="order-1 z-20 w-full max-w-[860px] lg:max-w-[760px] xl:max-w-[820px] text-center lg:text-left">
             <h1 className="font-gilroy font-black text-white uppercase leading-[0.92] text-[clamp(2rem,4.7vw,5.2rem)]">
               {t.titleLines.map((line) => (
@@ -59,9 +59,10 @@ export default function HeroSection() {
             </p>
 
             <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-              <button onClick={scrollToRequest} ...>
-                {t.ctaPrimary}
-              </button>
+              <button
+                onClick={scrollToRequest}
+                className="bg-white text-[#0A170B] font-montserrat font-semibold text-sm md:text-base px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+              >
                 {t.ctaPrimary}
               </button>
 
@@ -100,7 +101,7 @@ export default function HeroSection() {
                 sm:w-[112%] sm:-mr-[8%]
                 lg:w-[128%] lg:-mr-[22%] lg:mb-0
                 xl:w-[132%] xl:-mr-[24%]
-                max-h-[430px] sm:max-h-[520px] lg:max-h-[760px]
+                max-h-[390px] sm:max-h-[500px] lg:max-h-[700px]
               "
               style={{ transform: "rotate(1.5deg)" }}
             />
